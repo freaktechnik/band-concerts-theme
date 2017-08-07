@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel|Libre+Baskerville");
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    font-size: 14px;
+    font-family: serif;
+    line-height: 1.3;
+
+    --shadow: 0 0 1rem var(--font-color);
+    --trim: 1rem;
+
+    color: var(--font-color);
+    background-color: var(--background-color);
+    font-family: 'Libre Baskerville', serif;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a, a:link, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+.big-only {
+    display: none;
+    visibility: hidden;
+}
+
+/* HEADER */
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header.main-head {
+    position: relative;
+}
+
+.wp-custom-header {
+    position: absolute;
+    width: 100%;
+}
+
+.wp-custom-header img,
+.wp-custom-header video {
+    width: 100%;
+    height: auto;
+}
+
+.main-head div.wrapper {
+    position: relative;
+}
+.main-head .upper-head .wrapper {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.custom-logo {
+    max-width: 60%;
+    height: auto;
+    margin: 0 var(--trim);
+    padding: 2rem 0;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+}
+
+.upper-head {
+    overflow: hidden;
+    position: relative;
+}
+
+#menubutton {
+    font-size: 2rem;
+
+    float: right;
+
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    line-height: 1;
+    padding: 0.5em;
+
+    border: none;
+    background: var(--accent-color);
+    color: var(--accent-font-color);
+    box-shadow: var(--shadow);
+
+    position: absolute;
+    top: 1rem;
+    right: var(--trim);
+    text-align: center;
+}
+
+#menu-toggle {
+    display: none;
+    visibility: hidden;
+}
+
+#menubutton:hover,
+#menubutton:active {
+    background: var(--accent-hover-color);
+}
+
+header .spanner {
+    display: none;
+    visibility: hidden;
+
+    background: var(--accent-color);
+    color: var(--accent-font-color);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.menu,
+header .sub-menu {
+    padding: var(--trim);
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    line-height: 1;
+}
+
+header .sub-menu {
+    background-color: var(--accent-hover-color);
+}
+
+.menu li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li:not(:last-child) {
+    border-bottom: 1px solid var(--accent-font-color);
+}
+
+.menu li > a {
+    display: block;
+    padding: 1.3em;
+    text-decoration: none;
+    color: var(--accent-font-color);
+}
+
+.menu li:hover,
+.menu li:active {
+    background: var(--accent-hover-color);
+}
+
+header .sub-menu li:hover,
+header .sub-menu li:active {
+    background: var(--accent-color);
+}
+
+#menu-toggle:checked + .spanner {
+    display: block;
+    visibility: visible;
+}
+
+/* CONTENT */
+
+main {
+    padding: 0 var(--trim);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+aside {
+    background-color: var(--accent-alternate-color);
+    color: var(--accent-font-color);
+
+    padding: var(--trim);
+    margin-top: var(--trim);
+}
+
+main blockquote {
+    margin: 0.5rem 0;
+    border-left: 0.5rem solid var(--accent-alternate-color);
+    padding-left: var(--trim);
+    font-style: italic;
+}
+
+main ul {
+    padding-left: var(--trim);
+    margin-left: var(--trim);
+}
+
+main li {
+    margin: 0.5rem 0;
+}
+
+.navigation {
+    margin-top: var(--trim);
+}
+
+main .menu {
+    padding: 0;
+}
+
+main aside h1 {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--accent-color);
+    color: var(--accent-font-color);
+
+    margin-top: var(--trim);
+    padding: var(--trim);
+}
+
+footer a, footer a:link, footer a:visited, footer a:hover, footer a:active, footer a:focus {
+    color: var(--font-color);
+}
+
+footer a:hover, footer a:focus, footer a:active {
+    text-decoration: underline;
+}
+
+footer .wrapper div,
+footer section,
+footer p {
+    display: inline-block;
+}
+
+footer .wrapper div {
+    margin-right: var(--trim);
+}
+
+footer .menu {
+    display: inline-block;
+}
+
+footer .menu li {
+    display: inline-block;
+}
+
+footer .menu li:not(:last-child) {
+    border-bottom: none;
+}
+
+/* Contact form */
+.wpcf7-form-control-wrap,
+.wpcf7-form-control {
+    width: 100%;
+}
+
+/* TABLET+ */
+
+@media (min-width: 1024px) {
+    .big-only {
+        display: block;
+        visibility: visible;
+    }
+
+    .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .custom-logo {
+        max-width: 40rem;
+    }
+
+    #menubutton {
+        display: none;
+        visibility: hidden;
+    }
+
+    header .spanner {
+        display: block;
+        visibility: visible;
+        position: sticky;
+    }
+
+    header .menu {
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    header .menu > li {
+        display: inline-block;
+    }
+
+    header .menu > li:not(:last-child) {
+        border-bottom: none;
+    }
+
+    header .menu li > ul.sub-menu {
+        display: none;
+        visibility: hidden;
+    }
+
+    header .menu li:hover > ul.sub-menu {
+        display: block;
+        visibility: visible;
+        position: absolute;
+    }
+
+    main {
+        display: flex;
+    }
+
+    main .main {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
+    main aside {
+        flex-basis: 20sem;
+        flex-shrink: 0;
+    }
+
+    main article.two-columns {
+        display: flex;
+        width: 100%;
+    }
+
+    article.two-columns aside {
+        max-width: 20em;
+        flex-shrink: 0;
+        margin-right: var(--trim);
+    }
+
+    article.two-columns section {
+        flex-grow: 1;
+        margin-top: var(--trim);
+    }
+
+    article.two-columns section p:first-child {
+        margin-top: 0;
+    }
+}

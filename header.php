@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+    <head>
+        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+
+        <?php wp_head(); ?>
+    </head>
+    <body <?php body_class() ?>>
+        <header class="main-head">
+            <div class="upper-head">
+                <?php the_custom_header_markup(); ?>
+                <div class="wrapper">
+                    <?php the_custom_logo(); ?>
+                </div>
+            </div>
+            <nav>
+                <label id="menubutton" class="mobile-only" aria-label="Menu" for="menu-toggle" aria-controls="menu">&#9776;</label>
+                <input type="checkbox" id="menu-toggle">
+                <div class="spanner">
+                    <div class="wrapper">
+                        <?php wp_nav_menu([
+                            'container' => 'nav',
+                            'theme_location' => 'primary'
+                        ]); ?>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="wrapper">
