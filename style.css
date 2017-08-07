@@ -218,6 +218,18 @@ main li {
     margin-top: var(--trim);
 }
 
+.nav-links {
+    text-align: center;
+}
+
+.prev.page-numbers {
+    float: left;
+}
+
+.next.page-numbers {
+    float: right;
+}
+
 main .menu {
     padding: 0;
 }
@@ -334,7 +346,8 @@ footer .menu li:not(:last-child) {
     }
 
     main aside {
-        flex-basis: 20sem;
+        flex-basis: 20rem;
+        width: 20rem;
         flex-shrink: 0;
     }
 
@@ -344,7 +357,8 @@ footer .menu li:not(:last-child) {
     }
 
     article.two-columns aside {
-        max-width: 20em;
+        width: 20em;
+        flex-basis: 20em;
         flex-shrink: 0;
         margin-right: var(--trim);
     }

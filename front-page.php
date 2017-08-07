@@ -20,6 +20,7 @@
             </ul>
         </article>
         <?php } ?>
+        <p><a href="index.php/concert/">Zu den Konzertberichten</a></p>
     </section>
     <?php if(is_active_sidebar('aside')) { ?>
     <aside>

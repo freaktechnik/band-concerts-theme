@@ -15,6 +15,7 @@ class BCBTheme {
      * menu and editor styles.
      */
     function add_support() {
+        global $content_width;
         add_theme_support('post-thumbnails', [ 'concertseries', 'page' ]);
         add_theme_support('custom-logo', [
             'height' => 140,
@@ -64,6 +65,10 @@ class BCBTheme {
         ]);
 
         //add_editor_style(['content.css']);
+
+        if(!isset($content_width)) {
+            $content_width = 678;
+        }
     }
 
     /*
