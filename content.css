@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville|Raleway");
+
+body {
+    font-size: 14px;
+    font-family: sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--font-color);
+    background-color: var(--background-color);
+    font-family: var(--font-family-text);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a, a:link, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--link-color);
+    border-bottom: 1px solid var(--link-color);
+}
+
+.big-only {
+    display: none;
+    visibility: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+    font-family: var(--font-family-title);
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    margin-top: var(--trim);
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+    margin: .5em 0;
+}
+
+blockquote {
+    margin: 0.5rem 0;
+    border-left: 0.5rem solid var(--accent-alternate-color);
+    padding-left: var(--trim);
+    font-style: italic;
+    text-align: left;
+}
+
+
+address, i, b {
+    font-style: normal;
+}
+
+strong {
+    font-weight: bold;
+}
+
+small {
+    font-size: .7em;
+}
+
+em {
+    font-style: italic;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+pre, code {
+    font-family: monospace;
+}
+
+hr {
+    color: #AAAAAA; /* IE */
+    background-color: #AAAAAA; /* Blink */
+    border-color: #AAAAAA; /* Gecko */
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery figure {
+    display: inline-block;
+    margin: 0;
+}
+
+textarea, input[type='text'], input[type='number'], input[type='email'], input[type='tel'] {
+    font-family: sans-serif;
+    font-family: var(--font-family-text);
+    font-size: 1em;
+}

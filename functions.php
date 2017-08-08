@@ -15,7 +15,6 @@ class BCBTheme {
      * menu and editor styles.
      */
     function add_support() {
-        global $content_width;
         add_theme_support('post-thumbnails', [ 'concertseries', 'page' ]);
         add_theme_support('custom-logo', [
             'height' => 140,
@@ -48,27 +47,12 @@ class BCBTheme {
         add_theme_support('custom-background', [
             'default-color' => 'ffffff'
         ]);
-    /*
-        $crop = [ 'center', 'center' ];
-        add_image_size('post-thumbnail_xl', 3900, 1080, $crop);
-        add_image_size('post-thumbnail_l', 1920, 576, $crop);
-        add_image_size('post-thubmnail_xm', 1280, 384, $crop);
-        add_image_size('post-thumbnail_m', 720, 216, $crop);
-        set_post_thumbnail_size(480, 144, $crop);
 
-        add_image_size('gallery-2x', 300, 300, $crop);
-        add_image_size('gallery-3x', 450, 450, $crop);
-        add_image_size('gallery-4x', 600, 600, $crop);
-    */
         register_nav_menus([
             'primary' => 'Hauptnavigation'
         ]);
 
-        //add_editor_style(['content.css']);
-
-        if(!isset($content_width)) {
-            $content_width = 678;
-        }
+        add_editor_style(['content.css', 'editor.css']);
     }
 
     /*
@@ -108,11 +92,6 @@ class BCBTheme {
      */
     function scripts() {
         wp_enqueue_style('bcb-style', get_stylesheet_uri(), []);
-        //wp_enqueue_style('bcb.style-admin', get_stylesheet_directory_uri().'/content.css');
-
-        if(is_user_logged_in()) {
-            //wp_enqueue_style('bcb-style-admin', get_stylesheet_directory_uri().'/admin.css');
-        }
     }
 
     /*
@@ -120,15 +99,7 @@ class BCBTheme {
      */
     function custom_css() {
         ?><style type="text/css">
-            body {
-                --font-color: <?php echo get_theme_mod('text_color', '#291610'); ?>;
-                --background-color: #<?php echo get_background_color(); ?>;
-                --accent-color: <?php echo get_theme_mod('accent_color', '#d5d0c4') ?>;
-                --accent-hover-color: <?php echo get_theme_mod('accent_hover_color', '#dfdbd2') ?>;
-                --accent-alternate-color: <?php echo get_theme_mod('accent_alternate_color', '#b27100') ?>;
-                --accent-font-color: <?php echo get_theme_mod('accent_text_color', '#605036') ?>;
-                --link-color: <?php echo get_theme_mod('link_color', '#605036') ?>;
-            }
+            <?php include(dirname(__FILE__).'/inc/css-vars.php'); ?>
         </style><?php
     }
 
@@ -154,6 +125,19 @@ class BCBTheme {
     	]);
     }
 
+    function add_editor_style($mceInit) {
+        ob_start();
+        include(dirname(__FILE__).'/inc/css-vars.php');
+        $styles = str_replace("\n", "", ob_get_clean());
+        if(!isset($mceInit['content_style'])) {
+            $mceInit['content_style'] = $styles . ' ';
+        }
+        else {
+            $mceInit['content_style'] .= ' ' . $styles . ' ';
+        }
+        return $mceInit;
+    }
+
     function __construct() {
         // Suddenly actions.
         add_action('after_setup_theme', [$this, 'add_support']);
@@ -161,6 +145,7 @@ class BCBTheme {
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_action('wp_head', [$this, 'custom_css']);
         add_action('widgets_init', [$this, 'add_sidebars']);
+        add_filter('tiny_mce_before_init', [$this, 'add_editor_style']);
     }
 }
 

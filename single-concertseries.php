@@ -22,8 +22,8 @@ the_post(); ?>
         $review = get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true);
         if(!empty($review)) { ?>
         <h2 id="review">Konzertbericht</h2>
-        <?php echo $review;
-        } ?>
+        <p><?php echo $review; ?></p>
+        <?php } ?>
     </section>
 </article>
 <? } ?>
