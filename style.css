@@ -1,19 +1,28 @@
-@import url("https://fonts.googleapis.com/css?family=Cinzel|Libre+Baskerville");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville|Raleway");
 
 html, body {
     margin: 0;
     padding: 0;
 
     font-size: 14px;
-    font-family: serif;
-    line-height: 1.3;
+    font-family: sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
 
     --shadow: 0 0 1rem var(--font-color);
     --trim: 1rem;
+    --font-family-title: 'Libre Baskerville', serif;
+    --font-family-text: 'Raleway', sans-serif;
 
     color: var(--font-color);
     background-color: var(--background-color);
-    font-family: 'Libre Baskerville', serif;
+    font-family: var(--font-family-text);
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 .screen-reader-text {
@@ -28,11 +37,16 @@ img {
 a, a:link, a:visited {
     color: var(--link-color);
     text-decoration: none;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
 }
 
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
     color: var(--link-color);
-    text-decoration: underline;
+    border-bottom: 1px solid var(--link-color);
 }
 
 .big-only {
@@ -42,13 +56,7 @@ a:hover, a:active, a:focus {
 
 /* HEADER */
 header {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-header.main-head {
-    position: relative;
+    flex-shrink: 0;
 }
 
 .wp-custom-header {
@@ -62,11 +70,9 @@ header.main-head {
     height: auto;
 }
 
-.main-head div.wrapper {
-    position: relative;
-}
 .main-head .upper-head .wrapper {
     background-color: rgba(255, 255, 255, 0.4);
+    position: relative;
 }
 
 .custom-logo {
@@ -81,6 +87,13 @@ header.main-head {
 .upper-head {
     overflow: hidden;
     position: relative;
+}
+
+.upper-head a,
+.upper-head a:hover,
+.upper-head a:active,
+.upper-head a:focus {
+    border: none;
 }
 
 #menubutton {
@@ -131,7 +144,8 @@ header .spanner {
 header .sub-menu {
     padding: var(--trim);
     margin: 0;
-    font-family: 'Cinzel', serif;
+    font-family: serif;
+    font-family: var(--font-family-title);
     line-height: 1;
 }
 
@@ -154,6 +168,13 @@ header .sub-menu {
     padding: 1.3em;
     text-decoration: none;
     color: var(--accent-font-color);
+    border-bottom: none;
+}
+
+.menu li > a:hover,
+.menu li > a:active,
+.menu li > a:focus {
+    border-bottom: none;
 }
 
 .menu li:hover,
@@ -175,19 +196,29 @@ header .sub-menu li:active {
 
 main {
     padding: 0 var(--trim);
+    flex-grow: 2;
+    flex-shrink: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel', serif;
+    font-family: serif;
+    font-family: var(--font-family-title);
     font-weight: bold;
+    letter-spacing: 0.01em;
+    margin-top: var(--trim);
+    margin-bottom: 0.5em;
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 h2 {
-    font-size: 1.3em;
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
 }
 
 aside {
@@ -230,6 +261,10 @@ main li {
     float: right;
 }
 
+main aside {
+    align-self: start;
+}
+
 main .menu {
     padding: 0;
 }
@@ -237,6 +272,13 @@ main .menu {
 main aside h1 {
     padding-top: 0;
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+a h1,
+a h2,
+a h3 {
+    margin-bottom: 0.2rem;
 }
 
 /* FOOTER */
@@ -246,14 +288,16 @@ footer {
 
     margin-top: var(--trim);
     padding: var(--trim);
+    flex-shrink: 0;
 }
 
-footer a, footer a:link, footer a:visited, footer a:hover, footer a:active, footer a:focus {
+footer a,
+footer a:link,
+footer a:visited,
+footer a:hover,
+footer a:active,
+footer a:focus {
     color: var(--font-color);
-}
-
-footer a:hover, footer a:focus, footer a:active {
-    text-decoration: underline;
 }
 
 footer .wrapper div,
@@ -309,7 +353,10 @@ footer .menu li:not(:last-child) {
     header .spanner {
         display: block;
         visibility: visible;
+        position: relative;
+        position: -webkit-sticky;
         position: sticky;
+        top: 0;
     }
 
     header .menu {
@@ -349,6 +396,10 @@ footer .menu li:not(:last-child) {
         flex-basis: 20rem;
         width: 20rem;
         flex-shrink: 0;
+    }
+
+    main aside h1 {
+        margin-bottom: 0.2rem;
     }
 
     main article.two-columns {
