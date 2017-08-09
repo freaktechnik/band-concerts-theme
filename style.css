@@ -124,6 +124,7 @@ header .sub-menu {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 
 .menu li:not(:last-child) {

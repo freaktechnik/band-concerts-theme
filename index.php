@@ -2,14 +2,16 @@
 <div>
 <?php while(have_posts()) {
     the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <header>
+    <article id="post-<?php the_ID(); ?>" <?php post_class([
+        'two-columns'
+    ]); ?>>
+        <aside>
             <a href="<?php the_permalink() ?>"><?php the_title('<h1>', '</h1>'); ?></a>
-        </header>
-        <div class="content">
+            <p><?php edit_post_link(); ?></p>
+        </aside>
+        <section>
             <?php the_content(); ?>
-        </div>
-        <?php edit_post_link(); ?>
+        </section>
     </article><?php
 }
 the_posts_pagination([
