@@ -253,20 +253,12 @@ footer p {
     display: inline-block;
 }
 
-footer .wrapper div {
-    margin-right: var(--trim);
+footer .footer-inner section {
+    flex-grow: 1;
 }
 
-footer .menu {
-    display: inline-block;
-}
-
-footer .menu li {
-    display: inline-block;
-}
-
-footer .menu li:not(:last-child) {
-    border-bottom: none;
+footer .footer-inner section div {
+    width: 100%;
 }
 
 /* Contact form */
@@ -369,5 +361,14 @@ footer .menu li:not(:last-child) {
 
     article.two-columns section p:first-child {
         margin-top: 0;
+    }
+
+    footer .footer-inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .footer-inner section {
+        padding-right: var(--trim);
     }
 }

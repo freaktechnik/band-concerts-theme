@@ -8,9 +8,7 @@
     ]); ?>>
         <aside>
             <a href="<?php the_permalink() ?>">
-                <?php $content = get_post_meta(get_the_ID(), BCBRevuePlugin::REVUE_FIELD, true);
-                $contentSrc = wp_get_attachment_image_src($content, 'thumbnail'); ?>
-                <img src="<?php echo esc_url($contentSrc[0]) ?>">
+                <?php the_post_thumbnail(); ?>
             </a>
         </aside>
         <section>
