@@ -46,8 +46,6 @@ header {
     height: auto;
     margin: 0 var(--trim);
     padding: 2rem 0;
-    image-rendering: crisp-edges;
-    image-rendering: -moz-crisp-edges;
 }
 
 .upper-head {
@@ -190,10 +188,15 @@ main li {
 
 .navigation {
     margin-top: var(--trim);
+    font-size: 1.1em;
 }
 
 .nav-links {
     text-align: center;
+}
+
+.page-numbers {
+    padding: 0 0.2em;
 }
 
 .prev.page-numbers {
@@ -254,11 +257,19 @@ footer p {
 }
 
 footer .footer-inner section {
-    flex-grow: 1;
+    width: 100%;
+}
+
+footer .footer-inner section:not(:last-child) {
+    margin-bottom: var(--trim);
 }
 
 footer .footer-inner section div {
     width: 100%;
+}
+
+footer .footer-inner .menu {
+    padding: 0;
 }
 
 /* Contact form */
@@ -369,6 +380,13 @@ footer .footer-inner section div {
     }
 
     footer .footer-inner section {
-        padding-right: var(--trim);
+        max-width: 33%;
+        flex-basis: calc(33% - (2 * var(--trim)) / 3);
+        flex-grow: 1;
+    }
+
+    footer .footer-inner section:not(last-child) {
+        margin-right: var(--trim);
+        margin-bottom: 0;
     }
 }
