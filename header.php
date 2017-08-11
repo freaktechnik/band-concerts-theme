@@ -10,7 +10,14 @@
     <body <?php body_class() ?>>
         <header class="main-head">
             <div class="upper-head">
-                <?php the_custom_header_markup(); ?>
+                <?php if(is_page() && has_post_thumbnail()) { ?>
+                <div id="wp-custom-header" class="wp-custom-header"><?php
+                    the_post_thumbnail('full');
+                ?></div>
+                <?php }
+                else {
+                    the_custom_header_markup();
+                } ?>
                 <div class="wrapper">
                     <?php the_custom_logo(); ?>
                 </div>

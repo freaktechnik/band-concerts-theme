@@ -25,6 +25,8 @@ header {
 .wp-custom-header {
     position: absolute;
     width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .wp-custom-header img,
