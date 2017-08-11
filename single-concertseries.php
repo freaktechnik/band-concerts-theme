@@ -9,10 +9,7 @@ the_post(); ?>
         $concerts = BC_ConcertSeries::getConcertsForSeries(get_the_ID());
         if(!empty($concerts)) { ?>
         <h2>Auftritte</h2>
-        <ul><?php foreach($concerts as $concert) { ?>
-            <li><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date('l j. F Y, H:i', $concert['id']) ?></time>, <?php echo $concert['location'] ?></li>
-        <?php } ?>
-        </ul>
+        <?php include(dirname(__FILE__).'/inc/concert-dates.php') ?>
         <?php } ?>
     </aside>
     <section>

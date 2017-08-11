@@ -5,9 +5,6 @@ html, body {
     padding: 0;
 
     --shadow: 0 0 1rem var(--font-color);
-    --trim: 1rem;
-    --font-family-title: 'Libre Baskerville', serif;
-    --font-family-text: 'Raleway', sans-serif;
     height: 100%;
 }
 
@@ -105,8 +102,10 @@ header .spanner {
     z-index: 1;
 }
 
-.menu,
-header .sub-menu {
+ul.menu,
+header nav.menu > ul,
+header .sub-menu,
+header .children {
     padding: var(--trim);
     margin: 0;
     font-family: serif;
@@ -114,7 +113,8 @@ header .sub-menu {
     line-height: 1;
 }
 
-header .sub-menu {
+header .sub-menu,
+header .children {
     background-color: var(--accent-hover-color);
 }
 
@@ -152,7 +152,10 @@ header .sub-menu {
 
 header .sub-menu li:hover,
 header .sub-menu li:active,
-header .sub-menu li.current-menu-item {
+header .sub-menu li.current-menu-item,
+header .children li:hover,
+header .children li:active,
+header .children li.current_page_item {
     background: var(--accent-color);
 }
 
@@ -309,25 +312,30 @@ footer .footer-inner .menu {
         top: 0;
     }
 
-    header .menu {
+    header ul.menu,
+    header nav.menu > ul {
         margin: 0 auto;
         padding: 0;
     }
 
-    header .menu > li {
+    header ul.menu > li,
+    header nav.menu > ul > li {
         display: inline-block;
     }
 
-    header .menu > li:not(:last-child) {
+    header ul.menu > li:not(:last-child),
+    header nav.menu > ul > li:not(:last-child) {
         border-bottom: none;
     }
 
-    header .menu li > ul.sub-menu {
+    header .menu li > ul.sub-menu,
+    header .menu li > ul.children {
         display: none;
         visibility: hidden;
     }
 
-    header .menu li:hover > ul.sub-menu {
+    header .menu li:hover > ul.sub-menu,
+    header .menu li:hover > ul.children {
         display: block;
         visibility: visible;
         position: absolute;

@@ -5,6 +5,10 @@ body {
     font-family: sans-serif;
     line-height: 1.4;
     letter-spacing: 0.04em;
+
+    --trim: 1rem;
+    --font-family-title: 'Libre Baskerville', serif;
+    --font-family-text: 'Raleway', sans-serif;
     color: var(--font-color);
     background-color: var(--background-color);
     font-family: var(--font-family-text);
