@@ -154,3 +154,8 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
 .aligncenter:last-child {
     margin-bottom: 0;
 }
+
+.alignnone {
+    margin: var(--trim) 0;
+    display: block;
+}
