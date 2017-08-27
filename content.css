@@ -47,6 +47,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: var(--trim);
     margin-bottom: 0.5em;
     text-align: left;
+    -ms-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
 }
 
 h1 {
@@ -119,4 +122,35 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
     font-family: sans-serif;
     font-family: var(--font-family-text);
     font-size: 1em;
+}
+
+.alignleft {
+    float: left;
+    margin-right: var(--trim);
+    margin-bottom: var(--trim);
+    margin-top: var(--trim);
+}
+
+.alignright {
+    float: right;
+    margin-left: var(--trim);
+    margin-bottom: var(--trim);
+    margin-top: var(--trim);
+}
+
+.aligncenter {
+    float: center;
+    margin: var(--trim);
+}
+
+.alignright:first-child,
+.alignleft:first-child,
+.aligncenter:first-child {
+    margin-top: 0;
+}
+
+.alignright:last-child,
+.alignleft:last-child,
+.aligncenter:last-child {
+    margin-bottom: 0;
 }

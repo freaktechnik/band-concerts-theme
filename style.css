@@ -234,6 +234,9 @@ a h3 {
 
 main article {
     text-align: justify;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 
 /* FOOTER */

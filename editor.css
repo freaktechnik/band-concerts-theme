@@ -1,3 +1,5 @@
 .mceContentBody {
     max-width: 675px;
+    text-align: justify;
+    hyphens: auto;
 }

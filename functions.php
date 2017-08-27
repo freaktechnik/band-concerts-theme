@@ -5,8 +5,9 @@
 class BCBTheme {
     /*
      * Declares theme support for
-     *  - Thumbnails on rooms
+     *  - Thumbnails on pages and concerts
      *  - Custom Logo
+     *  - Custom header background
      *  - HTML5
      *  - Title tag
      *  - Automatic feed links
