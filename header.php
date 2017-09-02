@@ -8,6 +8,7 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class() ?>>
+        <a href="#maincontent" class="skip-link"><?php _e('Skip to main content') ?></a>
         <header class="main-head">
             <div class="upper-head">
                 <?php if(is_page() && has_post_thumbnail()) { ?>
@@ -35,4 +36,4 @@
                 </div>
             </nav>
         </header>
-        <main class="wrapper">
+        <main class="wrapper" id="maincontent">

@@ -18,6 +18,24 @@ body {
 }
 
 /* HEADER */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: auto;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+    background: var(--background-color);
+    color: var(--font-color);
+}
+
 header {
     flex-shrink: 0;
 }
