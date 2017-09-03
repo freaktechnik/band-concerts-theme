@@ -372,6 +372,7 @@ footer .footer-inner .menu {
     main .main {
         flex-grow: 1;
         flex-shrink: 0;
+        flex-basis: 632px;
     }
 
     main aside {
@@ -390,8 +391,8 @@ footer .footer-inner .menu {
     }
 
     article.two-columns aside {
-        width: 20em;
-        flex-basis: 20em;
+        width: 20rem;
+        flex-basis: 20rem;
         flex-shrink: 0;
         margin-right: var(--trim);
     }
