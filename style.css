@@ -96,7 +96,8 @@ header {
     position: absolute;
     top: 1rem;
     right: var(--trim);
-    text-align: center;
+    text-align: center;button
+    user-select: none;
 }
 
 #menu-toggle {
@@ -110,9 +111,6 @@ header {
 }
 
 header .spanner {
-    display: none;
-    visibility: hidden;
-
     background: var(--accent-color);
     color: var(--accent-font-color);
 
@@ -120,6 +118,10 @@ header .spanner {
     left: 0;
     right: 0;
     z-index: 1;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
 }
 
 ul.menu,
@@ -180,8 +182,7 @@ header .children li.current_page_item {
 }
 
 #menu-toggle:checked + .spanner {
-    display: block;
-    visibility: visible;
+    max-height: 200%;
 }
 
 /* CONTENT */
@@ -333,6 +334,7 @@ footer .footer-inner .menu {
         position: -webkit-sticky;
         position: sticky;
         top: 0;
+        overflow: visible;
     }
 
     header ul.menu,
@@ -353,15 +355,20 @@ footer .footer-inner .menu {
 
     header .menu li > ul.sub-menu,
     header .menu li > ul.children {
-        display: none;
-        visibility: hidden;
+        max-height: 0px;
+        overflow: hidden;
+        margin: 0;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s 0.04s,
+                    max-height 2s 0.1s;
     }
 
     header .menu li:hover > ul.sub-menu,
     header .menu li:hover > ul.children {
-        display: block;
-        visibility: visible;
-        position: absolute;
+        padding: var(--trim);
+        opacity: 1;
+        max-height: 1000vw;
     }
 
     main {
