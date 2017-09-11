@@ -335,6 +335,7 @@ footer .footer-inner .menu {
         position: sticky;
         top: 0;
         overflow: visible;
+        max-height: none;
     }
 
     header ul.menu,
