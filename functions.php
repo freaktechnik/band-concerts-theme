@@ -1,8 +1,19 @@
 <?php
+require 'inc/constants.php';
+
 /*
  * All hooks/actions are defined at the end of this file.
  */
-class BCBTheme {
+class BCTheme {
+    const COLOR_LABELS = [
+        'text_color' => 'Text',
+        'accent_color' => 'Akzent',
+        'accent_hover_color' => 'Aktiver Akzent',
+        'accent_alternate_color' => 'Alternativer Akzent',
+        'accent_text_color' => 'Akzent Text',
+        'link_color' => 'Links'
+    ];
+
     /*
      * Declares theme support for
      *  - Thumbnails on pages and concerts
@@ -46,7 +57,7 @@ class BCBTheme {
         add_theme_support('title-tag');
         add_theme_support('automatic-feed-links');
         add_theme_support('custom-background', [
-            'default-color' => 'ffffff'
+            'default-color' => substr(Constants::COLORS['background_color'], 1)
         ]);
 
         register_nav_menus([
@@ -80,19 +91,16 @@ class BCBTheme {
      * page and color options.
      */
     function customize_register($wp_customize) {
-        $this->add_color_setting($wp_customize, 'text_color', '#291610', 'Text');
-        $this->add_color_setting($wp_customize, 'accent_color', '#d5d0c4', 'Akzent');
-        $this->add_color_setting($wp_customize, 'accent_hover_color', '#dfdbd2', 'Aktiver akzent');
-        $this->add_color_setting($wp_customize, 'accent_alternate_color', '#b27100', 'Alternativer Akzent');
-        $this->add_color_setting($wp_customize, 'accent_text_color', '#605036', 'Akzent Text');
-        $this->add_color_setting($wp_customize, 'link_color', '#605036', 'Links');
+        foreach(self::COLOR_LABELS as $key => $label) {
+            $this->add_color_setting($wp_customize, $key, Constants::COLORS[$key], $label);
+        }
     }
 
     /*
      * Registers scripts and styles for the theme.
      */
     function scripts() {
-        wp_enqueue_style('bcb-style', get_stylesheet_uri(), []);
+        wp_enqueue_style('bc-style', get_stylesheet_uri(), []);
     }
 
     /*
@@ -150,4 +158,4 @@ class BCBTheme {
     }
 }
 
-new BCBTheme();
+new BCTheme();

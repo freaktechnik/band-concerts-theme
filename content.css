@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville|Raleway");
-
 body {
     font-size: 14px;
     font-family: sans-serif;
@@ -7,8 +5,8 @@ body {
     letter-spacing: 0.04em;
 
     --trim: 1rem;
-    --font-family-title: 'Libre Baskerville', serif;
-    --font-family-text: 'Raleway', sans-serif;
+    --font-family-title: sans-serif;
+    --font-family-text: sans-serif;
     color: var(--font-color);
     background-color: var(--background-color);
     font-family: var(--font-family-text);
