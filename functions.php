@@ -1,5 +1,5 @@
 <?php
-require 'inc/constants.php';
+require_once 'inc/constants.php';
 
 /*
  * All hooks/actions are defined at the end of this file.

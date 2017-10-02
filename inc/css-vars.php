@@ -1,5 +1,5 @@
 <?php
-require 'constants.php';
+require_once 'constants.php';
 
 $ignoredKeys = [
     'background_color'
