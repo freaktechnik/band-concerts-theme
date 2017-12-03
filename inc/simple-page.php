@@ -7,7 +7,8 @@
 
         if(!is_page()) { ?>
         <p><?php
-            the_date('F j, Y', '<time>', '</time>');
+            the_date(NULL, '<time datetime="'.get_the_date(DateTime::W3C).'">', '</time>');
+            ?><br><?php
             the_author();
         ?></p><?php
         }
@@ -30,6 +31,11 @@
         } ?>
     </aside>
     <section>
-        <?php the_content(); ?>
+    <?php
+        if(!is_page()) {
+            the_post_thumbnail();
+        }
+        the_content();
+    ?>
     </section>
 </article>

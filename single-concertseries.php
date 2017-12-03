@@ -8,9 +8,11 @@ the_post(); ?>
         <?php the_title('<h1>', '</h1>');
         $concerts = BC_ConcertSeries::getConcertsForSeries(get_the_ID());
         if(!empty($concerts)) { ?>
-        <h2>Auftritte</h2>
-        <?php include(dirname(__FILE__).'/inc/concert-dates.php') ?>
-        <?php } ?>
+            <?php if(BC_ConcertSeries::isConcert(get_the_ID())) { ?>
+                <h2>Auftritte</h2>
+            <?php }
+            include(dirname(__FILE__).'/inc/concert-dates.php');
+        } ?>
     </aside>
     <section>
         <?php

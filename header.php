@@ -11,16 +11,23 @@
         <a href="#maincontent" class="skip-link"><?php _e('Skip to main content') ?></a>
         <header class="main-head">
             <div class="upper-head">
-                <?php if(is_page() && has_post_thumbnail()) { ?>
-                <div id="wp-custom-header" class="wp-custom-header"><?php
-                    the_post_thumbnail('full');
-                ?></div>
-                <?php }
-                else {
-                    the_custom_header_markup();
-                } ?>
+                <div class="head-fixer">
+                    <?php if(is_page() && has_post_thumbnail()) { ?>
+                    <div id="wp-custom-header" class="wp-custom-header"><?php
+                        the_post_thumbnail('full');
+                    ?></div>
+                    <?php }
+                    else {
+                        the_custom_header_markup();
+                    } ?>
+                </div>
                 <div class="wrapper">
-                    <?php the_custom_logo(); ?>
+                    <?php if(has_custom_logo()) {
+                        the_custom_logo();
+                    }
+                    else {
+                        bloginfo('name');
+                    } ?>
                 </div>
             </div>
             <nav>
@@ -36,4 +43,5 @@
                 </div>
             </nav>
         </header>
-        <main class="wrapper" id="maincontent">
+        <main id="maincontent">
+            <div class="wrapper">

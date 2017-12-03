@@ -10,7 +10,9 @@ class BCTheme {
         'accent_color' => 'Akzent',
         'accent_hover_color' => 'Aktiver Akzent',
         'accent_alternate_color' => 'Alternativer Akzent',
+        'accent_alternate_hover_color' => 'Alternative aktiver Akzent',
         'accent_text_color' => 'Akzent Text',
+        'accent_alternate_text_color' => 'Alternativer Akzent Text',
         'link_color' => 'Links'
     ];
 
