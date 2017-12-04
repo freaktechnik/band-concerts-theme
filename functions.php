@@ -9,11 +9,14 @@ class BCTheme {
         'text_color' => 'Text',
         'accent_color' => 'Akzent',
         'accent_hover_color' => 'Aktiver Akzent',
+        'accent_text_color' => 'Akzent Text',
         'accent_alternate_color' => 'Alternativer Akzent',
         'accent_alternate_hover_color' => 'Alternative aktiver Akzent',
-        'accent_text_color' => 'Akzent Text',
         'accent_alternate_text_color' => 'Alternativer Akzent Text',
-        'link_color' => 'Links'
+        'link_color' => 'Links',
+        'footer_color' => 'Footer',
+        'footer_text_color' => 'Footer Text',
+        'footer_text_hover_color' => 'Footer aktiver Text'
     ];
 
     /*

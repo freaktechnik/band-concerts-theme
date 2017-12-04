@@ -10,7 +10,10 @@ class Constants {
         'accent_alternate_text_color' => '#291610',
         'link_color' => '#047983',
         'background_color' => '#FFFFFF',
-        'shadow_color' => '#291610'
+        'shadow_color' => '#291610',
+        'footer_color' => '#303232',
+        'footer_text_color' => '#EEB100',
+        'footer_text_hover_color' => '#FFCC00'
     ];
 }
 

@@ -1,12 +1,30 @@
+@font-face {
+    font-family: 'Rubik';
+    src: local('Rubik'),
+        url("fonts/Rubik/Rubik-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    src: url("fonts/Exo_2/Exo2-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}
+
 body {
     font-size: 14px;
-    font-family: sans-serif;
+    font-family: 'Rubik', sans-serif;
     line-height: 1.4;
     letter-spacing: 0.04em;
 
     --trim: 1rem;
-    --font-family-title: sans-serif;
-    --font-family-text: sans-serif;
+    --font-family-title: 'Exo 2', sans-serif;
+    --font-weight-title: 600;
+    --font-family-text: 'Rubik', sans-serif;
     color: var(--font-color);
     background-color: var(--background-color);
     font-family: var(--font-family-text);
@@ -40,7 +58,7 @@ a:focus {
 h1, h2, h3, h4, h5, h6 {
     font-family: serif;
     font-family: var(--font-family-title);
-    font-weight: bold;
+    font-weight: var(--font-weight-title);
     letter-spacing: 0.01em;
     margin-top: var(--trim);
     margin-bottom: 0.5em;

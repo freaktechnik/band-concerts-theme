@@ -103,7 +103,7 @@ header {
     position: absolute;
     top: 1rem;
     right: var(--trim);
-    text-align: center;button
+    text-align: center;
     user-select: none;
 }
 
@@ -137,8 +137,8 @@ header .sub-menu,
 header .children {
     padding: var(--trim);
     margin: 0;
-    font-family: serif;
-    font-family: var(--font-family-title);
+    font-family: sans-serif;
+    font-family: var(--font-family-content);
     line-height: 1;
 }
 
@@ -290,8 +290,8 @@ main article {
 
 /* FOOTER */
 footer {
-    background-color: var(--accent-color);
-    color: var(--accent-font-color);
+    background-color: var(--footer-color);
+    color: var(--footer-font-color);
 
     padding: var(--trim);
     flex-shrink: 0;
@@ -299,11 +299,8 @@ footer {
 
 footer a,
 footer a:link,
-footer a:visited,
-footer a:hover,
-footer a:active,
-footer a:focus {
-    color: var(--font-accent-color);
+footer a:visited {
+    color: var(--footer-font-color);
 }
 
 footer .wrapper div,
@@ -326,6 +323,24 @@ footer .footer-inner section div {
 
 footer .footer-inner .menu {
     padding: 0;
+}
+
+footer .menu li:not(:last-child) {
+    border-bottom-color: var(--footer-font-color);
+}
+
+footer .menu li:hover,
+footer .menu li:active,
+footer .menu li:focus,
+footer .menu li.current-menu-item {
+    background: transparent;
+}
+
+
+footer a:hover,
+footer a:active,
+footer a:focus {
+    color: var(--footer-font-hover-color);
 }
 
 /* Contact form */
