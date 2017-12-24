@@ -33,14 +33,16 @@
             $itemCount = 5;
             $bc_css = array_slice($bc_css, 0, $itemCount);
 
-            $postQuery = new WP_Query([
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'posts_per_page' => 1
-            ]);
-            if($postQuery->have_posts()) {
-                $index = min(count($bc_css), $itemCount - 1);
-                $bc_css[$index] = $postQuery->next_post();
+            if(count($bc_css) > 1 && count($bc_css) < $itemCount) {
+                $postQuery = new WP_Query([
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 1
+                ]);
+                if($postQuery->have_posts()) {
+                    $index = min(count($bc_css), $itemCount - 1);
+                    $bc_css[$index] = $postQuery->next_post();
+                }
             }
 
             $firstConcert = true;
