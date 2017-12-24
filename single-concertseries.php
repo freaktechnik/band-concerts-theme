@@ -23,12 +23,12 @@ the_post(); ?>
         <?php
         the_post_thumbnail();
         the_content();
-        $review = get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true);
+        $review = apply_filters( 'the_content', get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true));
         if(!empty($review)) { ?>
         <h2 id="review"><?php echo BC_ConcertSeries::IsConcert(get_the_ID()) ? 'Konzertbericht' : 'Rückblick'; ?></h2>
         <p><?php echo $review; ?></p>
         <?php } ?>
     </section>
 </article>
-<? } ?>
-<?php get_footer(); ?>
+<?php }
+get_footer();
