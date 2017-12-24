@@ -12,6 +12,11 @@ the_post(); ?>
                 <h2>Auftritte</h2>
             <?php }
             include(dirname(__FILE__).'/inc/concert-dates.php');
+        }
+        $flyer = get_post_meta(get_the_ID(), BC_ConcertSeries::FLYER_FIELD, true);
+        $flyerUrl = wp_get_attachment_url($flyer);
+        if(!empty($flyerUrl)) {
+            ?><a href="<?php echo $flyerUrl; ?>" target="_blank">Flyer</a><?php
         } ?>
     </aside>
     <section>
@@ -20,7 +25,7 @@ the_post(); ?>
         the_content();
         $review = get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true);
         if(!empty($review)) { ?>
-        <h2 id="review">Konzertbericht</h2>
+        <h2 id="review"><?php echo BC_ConcertSeries::IsConcert(get_the_ID()) ? 'Konzertbericht' : 'Rückblick'; ?></h2>
         <p><?php echo $review; ?></p>
         <?php } ?>
     </section>
