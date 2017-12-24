@@ -489,4 +489,10 @@ footer a:focus {
         margin-right: var(--trim);
         margin-bottom: 0;
     }
+
+    .cf-two-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
 }
