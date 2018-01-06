@@ -1,10 +1,19 @@
 @import url("content.css");
 
+@viewport {
+    min-width: device-width;
+    zoom: 100%;
+}
+
+:root {
+    --shadow: 0 0 .5rem var(--shadow-color);
+    --form-padding: 0.5em;
+    --form-radous: 5px;
+}
+
 html, body {
     margin: 0;
     padding: 0;
-
-    --shadow: 0 0 .5rem var(--shadow-color);
     height: 100%;
 }
 
@@ -36,28 +45,37 @@ body {
     color: var(--font-color);
 }
 
-header {
-    flex-shrink: 0;
+@media only speech {
+    .skip-link {
+        display: block;
+        position: static;
+        left: auto;
+        width: auto;
+        height: auto;
+        overflow: auto;
+    }
+
+    .screen-reader-text {
+        display: block;
+    }
 }
 
-.head-fixer {
-    position: fixed;
-    top: 0;
-    z-index: -2;
-    width: 100%;
+header {
+    flex-shrink: 0;
 }
 
 .wp-custom-header {
     position: absolute;
     width: 100%;
-    /*top: 50%;
-    transform: translate(0, -50%);*/
+    height: 100%;
 }
 
 .wp-custom-header img,
 .wp-custom-header video {
-    width: 100%;
-    height: auto;
+    max-width: unset;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
 }
 
 .main-head .upper-head .wrapper {
@@ -205,6 +223,10 @@ main .wrapper {
     padding: 0 var(--trim);
 }
 
+main a {
+    padding: 0.5em 0;
+}
+
 aside {
     background-color: var(--accent-alternate-color);
     color: var(--accent-alternate-font-color);
@@ -343,15 +365,111 @@ footer a:focus {
     color: var(--footer-font-hover-color);
 }
 
+footer button,
+footer input {
+    line-height: 1.5em;
+    padding: var(--form-padding);
+    border-radius: var(--form-radius);
+    border: 1px solid var(--footer-font-color);
+    font-size: 1em;
+}
+
+footer button,
+footer input[type="submit"],
+footer input[type="button"] {
+    background: var(--footer-color);
+    color: var(--footer-font-color);
+}
+
+footer button:hover,
+footer button:active,
+footer input[type="submit"]:hover,
+footer input[type="submit"]:active,
+footer input[type="button"]:hover,
+footer input[type="button"]:active {
+    background: var(--footer-font-color);
+    color: var(--footer-color);
+}
+
 /* Contact form */
 .wpcf7-form-control-wrap,
-.wpcf7-form-control {
+.wpcf7-form-control:not(.wpcf7-submit) {
     width: 100%;
+    box-sizing: border-box;
+}
+
+.wpcf7-form-control:not(.wpcf7-mailpoetsignup) {
+    border: 1px solid var(--accent-color);
+    line-height: 1.5em;
+    padding: var(--form-padding);
+    font-size: 1em;
+    border-radius: var(--form-radius);
+}
+
+.wpcf7 button,
+.wpcf7 input[type="submit"],
+.wpcf7 input[type="button"] {
+    background: var(--background-color);
+    color: var(--font-color);
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input[type="submit"]:active,
+.wpcf7 input[type="button"]:hover,
+.wpcf7 input[type="button"]:active,
+.wpcf7 button:hover,
+.wpcf7 button:active {
+    background: var(--accent-color);
+    color: var(--accent-font-color);
+}
+
+.wpcf7 input[type="checkbox"] {
+    --checkbox-size: 2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid var(--accent-color);
+    background: var(--background-color);
+    height: var(--checkbox-size);
+    width: var(--checkbox-size);
+    border-radius: var(--form-radius);
+    margin: 0;
+    padding: 0;
+}
+
+.wpcf7 input[type="checkbox"]:checked {
+    background: var(--accent-color);
+}
+
+.wpcf7 input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: var(--accent-font-color);
+    position: absolute;
+    height: var(--checkbox-size);
+    width: var(--checkbox-size);
+    font-size: calc(0.8 * var(--checkbox-size));
+    line-height: var(--checkbox-size);
+    display: block;
+    text-align: center;
+}
+
+@media (-moz-touch-enabled: 0), (pointer: fine) {
+    :root {
+        --form-radius: 2px;
+        --form-padding: 0.25em;
+    }
+
+    main a {
+        padding: initial;
+    }
+
+    .wpcf7 input[type="checkbox"] {
+        --checkbox-size: 1rem;
+    }
 }
 
 /* TABLET+ */
-
-@media (min-width: 1024px) {
+@media screen AND (min-width: 1024px) {
     .big-only {
         display: block;
         visibility: visible;
@@ -366,58 +484,60 @@ footer a:focus {
         max-width: 40rem;
     }
 
-    #menubutton {
-        display: none;
-        visibility: hidden;
-    }
+    @media (-moz-touch-enabled: 0), (hover: hover) {
+        #menubutton {
+            display: none;
+            visibility: hidden;
+        }
 
-    header .spanner {
-        display: block;
-        visibility: visible;
-        position: relative;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        overflow: visible;
-        max-height: none;
-        box-shadow: var(--shadow);
-    }
+        header .spanner {
+            display: block;
+            visibility: visible;
+            position: relative;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            overflow: visible;
+            max-height: none;
+            box-shadow: var(--shadow);
+        }
 
-    header ul.menu,
-    header nav.menu > ul {
-        margin: 0 auto;
-        padding: 0;
-    }
+        header ul.menu,
+        header nav.menu > ul {
+            margin: 0 auto;
+            padding: 0;
+        }
 
-    header ul.menu > li,
-    header nav.menu > ul > li {
-        display: inline-block;
-    }
+        header ul.menu > li,
+        header nav.menu > ul > li {
+            display: inline-block;
+        }
 
-    header ul.menu > li:not(:last-child),
-    header nav.menu > ul > li:not(:last-child) {
-        border-bottom: none;
-    }
+        header ul.menu > li:not(:last-child),
+        header nav.menu > ul > li:not(:last-child) {
+            border-bottom: none;
+        }
 
-    header .menu li > ul.sub-menu,
-    header .menu li > ul.children {
-        max-height: 0px;
-        overflow: hidden;
-        margin: 0;
-        position: absolute;
-        opacity: 0;
-        transition: opacity 0.3s 0.04s,
-                    max-height 2s 0.1s;
+        header .menu li > ul.sub-menu,
+        header .menu li > ul.children {
+            max-height: 0px;
+            overflow: hidden;
+            margin: 0;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.3s 0.04s,
+                        max-height 2s 0.1s;
 
-        box-shadow: var(--shadow);
-        z-index: -1;
-    }
+            box-shadow: var(--shadow);
+            z-index: -1;
+        }
 
-    header .menu li:hover > ul.sub-menu,
-    header .menu li:hover > ul.children {
-        padding: var(--trim);
-        opacity: 1;
-        max-height: 1000vw;
+        header .menu li:hover > ul.sub-menu,
+        header .menu li:hover > ul.children {
+            padding: var(--trim);
+            opacity: 1;
+            max-height: 1000vw;
+        }
     }
 
     main .wrapper {
@@ -494,5 +614,19 @@ footer a:focus {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
+        -webkit-column-gap: var(--trim);
+        -moz-column-gap: var(--trim);
+        column-gap: var(--trim);
+    }
+
+    .cf-two-columns *:first-child {
+        margin-top: 0;
+    }
+}
+
+@media only print {
+    .main-head nav,
+    footer {
+        display: none;
     }
 }
