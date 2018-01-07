@@ -41,7 +41,7 @@ body {
     width: auto;
     height: auto;
     z-index: 1000;
-    background: var(--background-color);
+    background-color: var(--background-color);
     color: var(--font-color);
 }
 
@@ -114,7 +114,7 @@ header {
     padding: 0.5em;
 
     border: none;
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     color: var(--accent-font-color);
     box-shadow: var(--shadow);
 
@@ -132,11 +132,11 @@ header {
 
 #menubutton:hover,
 #menubutton:active {
-    background: var(--accent-hover-color);
+    background-color: var(--accent-hover-color);
 }
 
 header .spanner {
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     color: var(--accent-font-color);
 
     position: absolute;
@@ -156,7 +156,7 @@ header .children {
     padding: var(--trim);
     margin: 0;
     font-family: sans-serif;
-    font-family: var(--font-family-content);
+    font-family: var(--font-family-text);
     line-height: 1;
 }
 
@@ -194,7 +194,7 @@ header .children {
 .menu li:active,
 .menu li.current-menu-item,
 .menu li.current-menu-ancestor {
-    background: var(--accent-hover-color);
+    background-color: var(--accent-hover-color);
 }
 
 header .sub-menu li:hover,
@@ -203,7 +203,7 @@ header .sub-menu li.current-menu-item,
 header .children li:hover,
 header .children li:active,
 header .children li.current_page_item {
-    background: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 #menu-toggle:checked + .spanner {
@@ -317,17 +317,14 @@ footer {
 
     padding: var(--trim);
     flex-shrink: 0;
-}
 
-footer a,
-footer a:link,
-footer a:visited {
-    color: var(--footer-font-color);
+    --link-color: var(--footer-font-color);
+    --accent-font-color: var(--footer-font-color);
 }
 
 footer .wrapper div,
 footer section,
-footer p {
+footer .mailpoet_paragraph {
     display: inline-block;
 }
 
@@ -347,10 +344,6 @@ footer .footer-inner .menu {
     padding: 0;
 }
 
-footer .menu li:not(:last-child) {
-    border-bottom-color: var(--footer-font-color);
-}
-
 footer .menu li:hover,
 footer .menu li:active,
 footer .menu li:focus,
@@ -362,6 +355,7 @@ footer .menu li.current-menu-item {
 footer a:hover,
 footer a:active,
 footer a:focus {
+    --link-color: var(--footer-font-hover-color);
     color: var(--footer-font-hover-color);
 }
 
@@ -377,7 +371,7 @@ footer input {
 footer button,
 footer input[type="submit"],
 footer input[type="button"] {
-    background: var(--footer-color);
+    background-color: var(--footer-color);
     color: var(--footer-font-color);
 }
 
@@ -387,7 +381,8 @@ footer input[type="submit"]:hover,
 footer input[type="submit"]:active,
 footer input[type="button"]:hover,
 footer input[type="button"]:active {
-    background: var(--footer-font-color);
+    background-color: var(--footer-font-hover-color);
+    border-color: var(--footer-font-hover-color);
     color: var(--footer-color);
 }
 
@@ -409,7 +404,7 @@ footer input[type="button"]:active {
 .wpcf7 button,
 .wpcf7 input[type="submit"],
 .wpcf7 input[type="button"] {
-    background: var(--background-color);
+    background-color: var(--background-color);
     color: var(--font-color);
 }
 
@@ -419,7 +414,7 @@ footer input[type="button"]:active {
 .wpcf7 input[type="button"]:active,
 .wpcf7 button:hover,
 .wpcf7 button:active {
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     color: var(--accent-font-color);
 }
 
@@ -429,7 +424,7 @@ footer input[type="button"]:active {
     -moz-appearance: none;
     appearance: none;
     border: 1px solid var(--accent-color);
-    background: var(--background-color);
+    background-color: var(--background-color);
     height: var(--checkbox-size);
     width: var(--checkbox-size);
     border-radius: var(--form-radius);
@@ -438,7 +433,7 @@ footer input[type="button"]:active {
 }
 
 .wpcf7 input[type="checkbox"]:checked {
-    background: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .wpcf7 input[type="checkbox"]:checked::after {
@@ -605,7 +600,7 @@ footer input[type="button"]:active {
         flex-grow: 1;
     }
 
-    footer .footer-inner section:not(last-child) {
+    footer .footer-inner section:not(:last-child) {
         margin-right: var(--trim);
         margin-bottom: 0;
     }

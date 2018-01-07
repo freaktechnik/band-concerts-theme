@@ -12,8 +12,8 @@ class Constants {
         'background_color' => '#FFFFFF',
         'shadow_color' => '#291610',
         'footer_color' => '#303232',
-        'footer_text_color' => '#EEB100',
-        'footer_text_hover_color' => '#FFCC00'
+        'footer_text_color' => '#E8E8DE',
+        'footer_text_hover_color' => '#EEB100'
     ];
 }
 
