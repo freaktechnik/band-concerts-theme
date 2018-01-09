@@ -16,16 +16,18 @@
                     $years[] = $year;
                 }
             } ?>
-            <p><time><?php echo implode(', ', $years); ?></time></p>
+            <p><time><?php echo BCTheme::get_icon('calendar').implode(', ', $years); ?></time></p>
             <?php
             $review = get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true);
             if(!empty($review)) { ?>
-                <p><a href="<?php the_permalink() ?>#review">Bericht lesen</a>
+                <p><a href="<?php the_permalink() ?>#review"><?php echo BCTheme::get_icon('newspaper'); ?>Bericht lesen</a></p>
             <?php
+                echo BCTheme::get_icon('edit');
                 edit_post_link();
             ?></p><?php
             }
             else {
+                echo BCTheme::get_icon('edit');
                 edit_post_link();
             }?>
         </aside>

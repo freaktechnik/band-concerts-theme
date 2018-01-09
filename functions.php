@@ -139,7 +139,7 @@ class BCTheme {
     	]);
     }
 
-    function add_editor_style($mceInit) {
+    function add_editor_style(array $mceInit) {
         ob_start();
         include(dirname(__FILE__).'/inc/css-vars.php');
         $styles = str_replace("\n", "", ob_get_clean());
@@ -150,6 +150,26 @@ class BCTheme {
             $mceInit['content_style'] .= ' ' . $styles . ' ';
         }
         return $mceInit;
+    }
+
+    static function get_icon(string $icon, string $set = 'solid', string $class = 'fa-font'): string {
+        $dir = get_template_directory_uri();
+        return <<<HTML
+<svg class="$class">
+  <use xlink:href="$dir/images/fa-$set.svg#$icon"></use>
+</svg>
+HTML;
+    }
+
+    static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i') {
+        $entry = '';
+        if($concert['fee'] != '-1') {
+            $icon = BCTheme::get_icon('ticket-alt');
+            $entry = '<br>'.$icon.'Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF');
+        }
+        echo BCTheme::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time> Uhr<br>
+        <?php
+        echo BCTheme::get_icon('location-arrow').$concert['location'].$entry;
     }
 
     function __construct() {

@@ -7,8 +7,10 @@
 
         if(!is_page()) { ?>
         <p><?php
+            echo BCTheme::get_icon('calendar');
             the_date(NULL, '<time datetime="'.get_the_date(DateTime::W3C).'">', '</time>');
             ?><br><?php
+            echo BCTheme::get_icon('user');
             the_author();
         ?></p><?php
         }

@@ -16,7 +16,7 @@ the_post(); ?>
         $flyer = get_post_meta(get_the_ID(), BC_ConcertSeries::FLYER_FIELD, true);
         $flyerUrl = wp_get_attachment_url($flyer);
         if(!empty($flyerUrl)) {
-            ?><a href="<?php echo $flyerUrl; ?>" target="_blank">Flyer</a><?php
+            ?><a href="<?php echo $flyerUrl; ?>" target="_blank"><?php echo BCTheme::get_icon('file-pdf'); ?>Flyer</a><?php
         } ?>
     </aside>
     <section>

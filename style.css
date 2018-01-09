@@ -448,6 +448,28 @@ footer input[type="button"]:active {
     text-align: center;
 }
 
+/*
+ * SVG fontawesome icons
+ */
+svg.fa-font,
+svg.fa-footer {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+svg.fa-font {
+    margin-right: .2em;
+    height: 1em;
+    width: 1em;
+    fill: var(--font-color);
+}
+
+svg.fa-footer {
+    height: 2em;
+    width: 2em;
+    fill: var(--footer-font-color);
+}
+
 @media (-moz-touch-enabled: 0), (pointer: fine) {
     :root {
         --form-radius: 2px;
