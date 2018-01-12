@@ -227,12 +227,14 @@ main a {
     padding: 0.5em 0;
 }
 
-aside {
+main aside {
     background-color: var(--accent-alternate-color);
     color: var(--accent-alternate-font-color);
 
     padding: var(--trim);
     margin-top: var(--trim);
+
+    align-self: start;
 }
 
 main ul {
@@ -263,10 +265,6 @@ main li {
 
 .next.page-numbers {
     float: right;
-}
-
-main aside {
-    align-self: start;
 }
 
 main .menu {
@@ -616,13 +614,13 @@ svg.fa-footer {
         justify-content: space-between;
     }
 
-    footer .footer-inner section {
+    footer .footer-inner > aside {
         max-width: 33%;
         flex-basis: calc(33% - (2 * var(--trim)) / 3);
         flex-grow: 1;
     }
 
-    footer .footer-inner section:not(:last-child) {
+    footer .footer-inner > aside:not(:last-child) {
         margin-right: var(--trim);
         margin-bottom: 0;
     }

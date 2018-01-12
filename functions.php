@@ -121,22 +121,38 @@ class BCTheme {
      * Registers the widget areas in the footer and the aside for rooms.
      */
     function add_sidebars() {
-    	register_sidebar([
-    		'name' => __('Fusszeile'),
-    		'id' => 'footer',
-    		'before_widget' => '<section>',
-    		'after_widget' => '</section>',
-    		'before_title' => '<h4>',
-    		'after_title' => '</h4>',
-    	]);
         register_sidebar([
-    		'name' => __('Seitenleiste'),
-    		'id' => 'aside',
-    		'before_widget' => '<section>',
-    		'after_widget' => '</section>',
-    		'before_title' => '<h2>',
-    		'after_title' => '</h2>',
-    	]);
+            'name' => __('Fusszeile').' 1',
+            'id' => 'footer',
+            'before_widget' => '<section>',
+            'after_widget' => '</section>',
+            'before_title' => '<h4>',
+            'after_title' => '</h4>',
+        ]);
+        register_sidebar([
+            'name' => __('Fusszeile').' 2',
+            'id' => 'footer2',
+            'before_widget' => '<section>',
+            'after_widget' => '</section>',
+            'before_title' => '<h4>',
+            'after_title' => '</h4>',
+        ]);
+        register_sidebar([
+            'name' => __('Fusszeile').' 3',
+            'id' => 'footer3',
+            'before_widget' => '<section>',
+            'after_widget' => '</section>',
+            'before_title' => '<h4>',
+            'after_title' => '</h4>',
+        ]);
+        register_sidebar([
+            'name' => __('Seitenleiste'),
+            'id' => 'aside',
+            'before_widget' => '<section>',
+            'after_widget' => '</section>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        ]);
     }
 
     function add_editor_style(array $mceInit) {
