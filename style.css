@@ -238,6 +238,10 @@ main aside {
     line-height: 1.6;
 }
 
+main aside h2 {
+    margin-bottom: 0;
+}
+
 main ul {
     padding-left: var(--trim);
     margin-left: var(--trim);
