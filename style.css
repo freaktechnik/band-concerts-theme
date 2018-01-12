@@ -235,6 +235,7 @@ main aside {
     margin-top: var(--trim);
 
     align-self: start;
+    line-height: 1.6;
 }
 
 main ul {

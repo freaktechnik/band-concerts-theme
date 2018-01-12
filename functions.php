@@ -193,7 +193,7 @@ HTML;
             echo BCTheme::get_icon('calendar-plus');
             ?>Termin exportieren</a><?php
             if($concert['fbevent']) {
-                ?><a href="" title="Facebook Event"><?php
+                ?> <a href="<?php echo $concert['fbevent'] ?>" title="Facebook Event"><?php
                 echo BCTheme::get_icon('facebook', 'brands');
                 ?>Event</a><?php
             }
