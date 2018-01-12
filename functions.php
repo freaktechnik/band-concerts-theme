@@ -177,7 +177,7 @@ class BCTheme {
 HTML;
     }
 
-    static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i') {
+    static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i', $share = true) {
         $entry = '';
         if($concert['fee'] != '-1') {
             $icon = BCTheme::get_icon('ticket-alt');
@@ -186,6 +186,18 @@ HTML;
         echo BCTheme::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time> Uhr<br>
         <?php
         echo BCTheme::get_icon('location-arrow').$concert['location'].$entry;
+        if($share) {
+            ?><br><?php
+            echo BCTheme::get_icon('share');
+            ?><a href="" title="In Kalender Exportieren"><?php
+            echo BCTheme::get_icon('calendar-plus');
+            ?>Termin exportieren</a><?php
+            if($concert['fbevent']) {
+                ?><a href="" title="Facebook Event"><?php
+                echo BCTheme::get_icon('facebook', 'brands');
+                ?>Event</a><?php
+            }
+        }
     }
 
     function __construct() {

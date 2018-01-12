@@ -83,10 +83,10 @@
             }
             if(!$printedConcert) { ?>
         <p>Aktuell sind keine Aktivitäten bekannt.</p>
-        <p><a href="index.php/concert/">Vergangene Aktivitäten</a></p>
+        <p><a href="index.php/concert/" class="button">Vergangene Aktivitäten</a></p>
         <?php }
         else { ?>
-        </div><p><a href="index.php/concert/">Alle Aktivitäten</a></p>
+        </div><p><a href="index.php/concert/" class="button">Alle Aktivitäten</a></p>
         <?php } ?>
     </section>
     <?php if(is_active_sidebar('aside')) { ?>

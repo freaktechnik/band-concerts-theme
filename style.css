@@ -246,6 +246,11 @@ main li {
     margin: 0.5rem 0;
 }
 
+.button {
+    display: inline-block;
+    text-decoration: none;
+}
+
 .navigation {
     margin-top: var(--trim);
     font-size: 1.1em;
@@ -391,7 +396,8 @@ footer input[type="button"]:active {
     box-sizing: border-box;
 }
 
-.wpcf7-form-control:not(.wpcf7-mailpoetsignup) {
+.wpcf7-form-control:not(.wpcf7-mailpoetsignup),
+a.button {
     border: 1px solid var(--accent-color);
     line-height: 1.5em;
     padding: var(--form-padding);
@@ -401,7 +407,8 @@ footer input[type="button"]:active {
 
 .wpcf7 button,
 .wpcf7 input[type="submit"],
-.wpcf7 input[type="button"] {
+.wpcf7 input[type="button"],
+a.button {
     background-color: var(--background-color);
     color: var(--font-color);
 }
@@ -411,7 +418,9 @@ footer input[type="button"]:active {
 .wpcf7 input[type="button"]:hover,
 .wpcf7 input[type="button"]:active,
 .wpcf7 button:hover,
-.wpcf7 button:active {
+.wpcf7 button:active,
+a.button:hover,
+a.button:active {
     background-color: var(--accent-color);
     color: var(--accent-font-color);
 }
@@ -465,7 +474,7 @@ svg.fa-font {
 svg.fa-footer {
     height: 2em;
     width: 2em;
-    fill: var(--footer-font-color);
+    fill: var(--link-color);
 }
 
 @media (-moz-touch-enabled: 0), (pointer: fine) {
