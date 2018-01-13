@@ -2,7 +2,7 @@
 namespace BandConcerts\Theme;
 
 require_once __DIR__.'/includes/Constants.php';
-require_once __DIR.'/includes/LinksWidget.php';
+require_once __DIR__.'/includes/LinksWidget.php';
 
 /*
  * All hooks/actions are defined at the end of this file.

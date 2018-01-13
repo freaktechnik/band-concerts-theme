@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'../includes/constants.php';
+require_once __DIR__.'/../includes/Constants.php';
 
 use \BandConcerts\Theme\Constants;
 
