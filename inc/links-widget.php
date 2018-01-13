@@ -17,13 +17,13 @@ class LinksWidget extends \WP_Widget {
 	    if (!empty($instance['title'])) {
 		    echo $args['before_title'].apply_filters('widget_title', $instance['title']).$args['after_title'];
 	    }
-        ?><a href="<?php echo esc_attr(preg_replace('/^https?:/', 'webcal:', get_feed_link("bc-ical"))) ?>" title="Terminkalender abonnieren">
+        ?><a href="<?php echo esc_attr(preg_replace('/^https?:/', 'webcal:', get_feed_link("bc-ical"))) ?>" title="Terminkalender abonnieren" rel="calendar">
             <svg class="fa-footer">
         	   <use xlink:href="<?php echo esc_attr(get_template_directory_uri()) ?>/images/fa-solid.svg#calendar-plus"></use>
         	</svg>
         </a><?php
         if(!empty($instance['facebook'])) { ?>
-            <a href="<?php echo esc_attr($instance['facebook']) ?>" title="Facebook Seite" rel="external noopener">
+            <a href="<?php echo esc_attr($instance['facebook']) ?>" title="Facebook Seite" rel="external noopener me">
                 <svg class="fa-footer">
             	   <use xlink:href="<?php echo esc_attr(get_template_directory_uri()) ?>/images/fa-brands.svg#facebook"></use>
             	</svg>
