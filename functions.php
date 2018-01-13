@@ -189,7 +189,7 @@ HTML;
         if($share) {
             ?><br><?php
             echo BCTheme::get_icon('share');
-            ?><a href="" title="In Kalender Exportieren"><?php
+            ?><a href="<?php echo get_permalink($concert['id']) ?>" title="In Kalender Exportieren"><?php
             echo BCTheme::get_icon('calendar-plus');
             ?>Termin exportieren</a><?php
             if($concert['fbevent']) {
