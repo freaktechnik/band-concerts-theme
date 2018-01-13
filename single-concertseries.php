@@ -17,7 +17,8 @@ the_post(); ?>
         $flyerUrl = wp_get_attachment_url($flyer);
         if(!empty($flyerUrl)) {
             ?><a href="<?php echo $flyerUrl; ?>" target="_blank"><?php echo BCTheme::get_icon('file-pdf'); ?>Flyer</a><?php
-        } ?>
+        }
+        edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>'); ?>
     </aside>
     <section>
         <?php

@@ -22,14 +22,9 @@
             if(!empty($review)) { ?>
                 <p><a href="<?php the_permalink() ?>#review"><?php echo BCTheme::get_icon('newspaper'); ?>Bericht lesen</a></p>
             <?php
-                echo BCTheme::get_icon('edit');
-                edit_post_link();
-            ?></p><?php
             }
-            else {
-                echo BCTheme::get_icon('edit');
-                edit_post_link();
-            }?>
+            edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>');
+            ?>
         </aside>
         <section>
             <?php the_post_thumbnail();

@@ -23,8 +23,7 @@ while($q->have_posts()) {
                 echo BCTheme::get_icon('user');
                 the_author();
             ?></p><?php
-            echo BCTheme::get_icon('edit');
-            edit_post_link(); ?>
+            edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>'); ?>
         </aside>
         <section>
             <?php the_post_thumbnail();
