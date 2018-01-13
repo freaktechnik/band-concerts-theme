@@ -615,13 +615,15 @@ svg.fa-footer {
     }
 
     main aside {
-        flex-basis: calc(33% - (8 * var(--trim)) / 3);
-        width: calc(33% - (8 * var(--trim)) / 3);
+        flex-basis: calc(33% - 3 * var(--trim));
+        width: calc(33% - 3 * var(--trim));
         flex-shrink: 0;
     }
 
     main aside h1 {
         margin-bottom: 0.2rem;
+        hyphens: auto;
+        overflow-wrap: break-word;
     }
 
     main article.two-columns {
@@ -630,8 +632,8 @@ svg.fa-footer {
     }
 
     article.two-columns aside {
-        flex-basis: calc(33% - (8 * var(--trim)) / 3);
-        width: calc(33% - (8 * var(--trim)) / 3);
+        flex-basis: calc(33% - 3 * var(--trim));
+        width: calc(33% - 3 * var(--trim));
         flex-shrink: 0;
         margin-right: var(--trim);
     }
