@@ -1,5 +1,5 @@
 # band-concerts-theme
-WordPress theme built to display data entered using the [band-concerts](https//github.com/freaktechnik/band-concerts) plugin.
+WordPress theme built to display data entered using the [band-concerts](https://github.com/freaktechnik/band-concerts) plugin.
 The plugin is required for the theme to work properly.
 
 ## Features
