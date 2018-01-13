@@ -35,17 +35,22 @@ img {
     height: auto;
 }
 
-a, a:link, a:visited {
-    color: var(--link-color);
+a,
+a:link,
+a:visited {
     text-decoration: none;
+    color: var(--link-color);
+}
+
+a:not(.image), a:not(.image):link, a:not(.image):visited {
     display: inline-block;
     border-bottom: 1px solid transparent;
     box-sizing: border-box;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:not(.image):hover,
+a:not(.image):active,
+a:not(.image):focus {
     color: var(--link-color);
     border-bottom: 1px solid var(--link-color);
 }
@@ -155,8 +160,8 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
 }
 
 .aligncenter {
-    float: center;
-    margin: var(--trim);
+    display: block;
+    margin: var(--trim) auto;
 }
 
 .alignright:first-child,

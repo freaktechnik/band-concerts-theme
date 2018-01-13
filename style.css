@@ -187,11 +187,13 @@ header .children {
     border-bottom: 1px solid var(--accent-font-color);
 }
 
-.menu li > a {
+.menu li > a,
+.menu li > a:link,
+.menu li > a:visited {
     display: block;
     padding: 1.3em;
     text-decoration: none;
-    color: var(--accent-font-color);
+    --link-color: var(--accent-font-color);
     border-bottom: none;
 }
 
@@ -234,7 +236,7 @@ main .wrapper {
     padding: 0 var(--trim);
 }
 
-main a {
+main a:not(.image) {
     padding: 0.5em 0;
 }
 
@@ -302,8 +304,10 @@ main .menu li:hover {
     background-color: var(--accent-alternate-hover-color);
 }
 
-main .menu li > a {
-    color: var(--accent-alternate-font-color);
+main .menu li > a,
+main .menu li > a:link {
+    /* Need the important for a broken cascade on Firefox :( */
+    --link-color: var(--accent-alternate-font-color) !important;
 }
 
 main aside h1 {
@@ -376,7 +380,8 @@ footer .menu li.current-menu-item {
 footer a:hover,
 footer a:active,
 footer a:focus {
-    --link-color: var(--footer-font-hover-color);
+    /* Yeah, still that broken cascade */
+    --link-color: var(--footer-font-hover-color) !important;
     color: var(--footer-font-hover-color);
 }
 
@@ -416,6 +421,7 @@ footer input[type="button"]:active {
 
 .wpcf7-form-control:not(.wpcf7-mailpoetsignup),
 a.button,
+a.button:link,
 a.next.page-numbers,
 a.prev.page-numbers {
     border: 1px solid var(--accent-color);
@@ -429,10 +435,11 @@ a.prev.page-numbers {
 .wpcf7 input[type="submit"],
 .wpcf7 input[type="button"],
 a.button,
+a.button:link,
 a.next.page-numbers,
 a.prev.page-numbers {
     background-color: var(--background-color);
-    color: var(--font-color);
+    --link-color: var(--font-color);
 }
 
 .wpcf7 input[type="submit"]:hover,
@@ -448,7 +455,7 @@ a.next.page-numbers:active,
 a.prev.page-numbers:hover,
 a.prev.page-numbers:active {
     background-color: var(--accent-color);
-    color: var(--accent-font-color);
+    --link-color: var(--accent-font-color);
 }
 
 .wpcf7 input[type="checkbox"] {
@@ -509,7 +516,7 @@ svg.fa-footer {
         --form-padding: 0.25em;
     }
 
-    main a {
+    main a:not(.image) {
         padding: initial;
     }
 
