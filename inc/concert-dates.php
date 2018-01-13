@@ -1,1 +1,1 @@
-<?php BCTheme::format_concerts($concerts);
+<?php \BandConcerts\Theme\Theme::format_concerts($concerts);

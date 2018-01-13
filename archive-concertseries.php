@@ -8,7 +8,7 @@
     ]); ?>>
         <aside>
             <a href="<?php the_permalink() ?>"><?php the_title('<h1>', '</h1>'); ?></a>
-            <?php $concerts = BC_ConcertSeries::getConcertsForSeries(get_the_ID());
+            <?php $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries(get_the_ID());
             $years = [];
             foreach($concerts as $c) {
                 $year = get_the_date('Y', $c['id']);
@@ -16,14 +16,14 @@
                     $years[] = $year;
                 }
             } ?>
-            <p><time><?php echo BCTheme::get_icon('calendar').implode(', ', $years); ?></time></p>
+            <p><time><?php echo \BandConcerts\Theme\Theme::get_icon('calendar').implode(', ', $years); ?></time></p>
             <?php
-            $review = get_post_meta(get_the_ID(), BC_ConcertSeries::REVIEW_FIELD, true);
+            $review = get_post_meta(get_the_ID(), \BandConcerts\ConcertSeries::REVIEW_FIELD, true);
             if(!empty($review)) { ?>
-                <p><a href="<?php the_permalink() ?>#review"><?php echo BCTheme::get_icon('newspaper'); ?>Bericht lesen</a></p>
+                <p><a href="<?php the_permalink() ?>#review"><?php echo \BandConcerts\Theme\Theme::get_icon('newspaper'); ?>Bericht lesen</a></p>
             <?php
             }
-            edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>');
+            edit_post_link(null, '<p>'.\BandConcerts\Theme\Theme::get_icon('edit'), '</p>');
             ?>
         </aside>
         <section>

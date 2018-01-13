@@ -2,7 +2,7 @@
 <div>
 <?php while(have_posts()) {
     the_post();
-    include(dirname(__FILE__).'/inc/simple-page.php');
+    include __DIR__.'/inc/simple-page.php';
 }
 the_posts_pagination([
     'prev_text' => 'Vorherige',

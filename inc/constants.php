@@ -1,5 +1,7 @@
 <?php
-class Constants {
+namespace BandConcerts\Theme;
+
+abstract class Constants {
     const COLORS = [
         'text_color' => '#291610',
         'accent_color' => '#047983',
@@ -15,8 +17,7 @@ class Constants {
         'footer_text_color' => '#E8E8DE',
         'footer_text_hover_color' => '#EEB100'
     ];
-}
-
-function key_to_cssvar($key) {
-    return str_replace('_', '-', str_replace('text', 'font', $key));
+    public static function key_to_cssvar($key) {
+        return str_replace('_', '-', str_replace('text', 'font', $key));
+    }
 }

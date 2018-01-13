@@ -1,11 +1,13 @@
 <?php
+namespace BandConcerts\Theme;
+
 require_once 'inc/constants.php';
 require_once 'inc/links-widget.php';
 
 /*
  * All hooks/actions are defined at the end of this file.
  */
-class BCTheme {
+class Theme {
     const COLOR_LABELS = [
         'text_color' => 'Text',
         'accent_color' => 'Akzent',
@@ -82,7 +84,7 @@ class BCTheme {
             'sanitize_callback' => 'sanitize_hex_color'
         ]);
 
-        $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize->add_control(new \WP_Customize_Color_Control(
             $wp_customize,
             $name,
             [
@@ -114,7 +116,7 @@ class BCTheme {
      */
     function custom_css() {
         ?><style type="text/css">
-            <?php include(dirname(__FILE__).'/inc/css-vars.php'); ?>
+            <?php include __DIR__.'/inc/css-vars.php'; ?>
         </style><?php
     }
 
@@ -158,7 +160,7 @@ class BCTheme {
 
     function add_editor_style(array $mceInit) {
         ob_start();
-        include(dirname(__FILE__).'/inc/css-vars.php');
+        include __DIR__.'/inc/css-vars.php';
         $styles = str_replace("\n", "", ob_get_clean());
         if(!isset($mceInit['content_style'])) {
             $mceInit['content_style'] = $styles . ' ';
@@ -182,12 +184,12 @@ HTML;
     {
         if(count($concerts) == 1) {
             ?><p><?php
-            BCTheme::format_details($concerts[0], $dateFormat, $share);
+            self::format_details($concerts[0], $dateFormat, $share);
             ?></p><?php
         }
         else { ?>
         <ul><?php foreach($concerts as $concert) { ?>
-            <li><?php BCTheme::format_details($concert, $dateFormat, $share); ?></li>
+            <li><?php self::format_details($concert, $dateFormat, $share); ?></li>
         <?php } ?>
         </ul>
         <?php
@@ -200,23 +202,23 @@ HTML;
             $dateFormat = 'l j. F Y';
         }
         if($concert['fee'] != '-1') {
-            $icon = BCTheme::get_icon('ticket-alt');
+            $icon = self::get_icon('ticket-alt');
             $entry = '<br>'.$icon.'Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF');
         }
-        echo BCTheme::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?><br>
+        echo self::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?><br>
         <?php
         if(!empty($concert['location'])) {
-            echo BCTheme::get_icon('location-arrow').$concert['location'].$entry;
+            echo self::get_icon('location-arrow').$concert['location'].$entry;
         }
         if($share) {
             ?><br><?php
-            echo BCTheme::get_icon('share');
+            echo self::get_icon('share');
             ?><a href="<?php echo get_permalink($concert['id']) ?>" title="In Kalender Exportieren"><?php
-            echo BCTheme::get_icon('calendar-plus');
+            echo self::get_icon('calendar-plus');
             ?>Termin exportieren</a><?php
             if($concert['fbevent']) {
                 ?> <a href="<?php echo $concert['fbevent'] ?>" rel="external noopener" title="Facebook Event"><?php
-                echo BCTheme::get_icon('facebook', 'brands');
+                echo self::get_icon('facebook', 'brands');
                 ?>Event</a><?php
             }
         }
@@ -226,8 +228,14 @@ HTML;
      * Adds the widget for the current edition.
      */
     public function onWidgets() {
-        register_widget('BCLinksWidget');
+        register_widget('\BandConcerts\Theme\LinksWidget');
         $this->add_sidebars();
+    }
+
+    public function onAdmin() {
+        if(!class_exists('\BandConcerts\Plugin')) {
+            echo '<div class="error"><p>'.__('Error: The theme needs the BandConcerts Plugin to function', 'my-theme' ).'</p></div>';
+        }
     }
 
     function __construct() {
@@ -237,8 +245,9 @@ HTML;
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_action('wp_head', [$this, 'custom_css']);
         add_action('widgets_init', [$this, 'onWidgets']);
+        add_action('admin_notices', [$this, 'onAdmin']);
         add_filter('tiny_mce_before_init', [$this, 'add_editor_style']);
     }
 }
 
-new BCTheme();
+new Theme();

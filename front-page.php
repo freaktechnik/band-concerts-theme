@@ -2,11 +2,11 @@
     <section class="main">
         <h1>Nächste Termine</h1>
         <?php
-            $concertseries = BandConcertPlugin::getCurrentConcerts();
+            $concertseries = \BandConcerts\Plugin::getCurrentConcerts();
             $printedConcert = false;
             $bc_css = [];
             foreach($concertseries as $cs) {
-                $concerts = BC_ConcertSeries::getConcertsForSeries($cs->ID);
+                $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries($cs->ID);
                 $earliestConcertDate = NULL;
                 $concerts = array_filter($concerts, function($i) use(&$earliestConcertDate) {
                     $date = strtotime($i['date']);
@@ -55,12 +55,12 @@
             ?><section><?php
                 echo $cs->post_content;
             ?></section><?php
-            if(BC_ConcertSeries::isConcert($cs->ID)) { ?>
+            if(\BandConcerts\ConcertSeries::isConcert($cs->ID)) { ?>
             <h3>Auftritte</h3>
             <?php }
             $concerts = $cs->concerts;
             ?><div class="cf-two-columns"><?php
-            BCTheme::format_concerts($concerts, 'l j. F Y, H:i', false); ?></div>
+            \BandConcerts\Theme\Theme::format_concerts($concerts, 'l j. F Y, H:i', false); ?></div>
         </article>
         <div class="bc_extras">
         <?php }
@@ -76,7 +76,7 @@
             }
             else {
                 $concerts = $cs->concerts;
-                include(dirname(__FILE__).'/inc/short-concert-dates.php');
+                include __DIR__.'/inc/short-concert-dates.php';
             }?>
         </article>
                 <?php }

@@ -1,6 +1,8 @@
 <?php
 require_once 'constants.php';
 
+use \BandConcerts\Theme\Constants;
+
 $ignoredKeys = [
     'background_color'
 ];
@@ -14,7 +16,7 @@ $ignoredKeys = [
         if(in_array($key, $ignoredKeys)) {
             continue;
         }
-        $cssColor = key_to_cssvar($key);
+        $cssColor = Constants::key_to_cssvar($key);
         echo '--'.$cssColor.': '.get_theme_mod($key, $color).';';
     } ?>
     }

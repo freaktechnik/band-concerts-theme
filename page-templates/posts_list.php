@@ -17,13 +17,13 @@ while($q->have_posts()) {
         <aside>
             <a href="<?php the_permalink() ?>"><?php the_title('<h1>', '</h1>'); ?></a>
             <p><?php
-                echo BCTheme::get_icon('calendar');
+                echo \BandConcerts\Theme\Theme::get_icon('calendar');
                 the_date(NULL, '<time datetime="'.get_the_date(DateTime::W3C).'">', '</time>');
                 ?><br><?php
-                echo BCTheme::get_icon('user');
+                echo \BandConcerts\Theme\Theme::get_icon('user');
                 the_author();
             ?></p><?php
-            edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>'); ?>
+            edit_post_link(null, '<p>'.\BandConcerts\Theme\Theme::get_icon('edit'), '</p>'); ?>
         </aside>
         <section>
             <?php the_post_thumbnail();

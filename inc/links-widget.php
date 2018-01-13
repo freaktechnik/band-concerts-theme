@@ -1,10 +1,12 @@
 <?php
-class BCLinksWidget extends WP_Widget {
+namespace BandConcerts\Theme;
+
+class LinksWidget extends \WP_Widget {
     function __construct() {
         parent::__construct(
             'bc_links_widget',
-            __('BC Links', BC_TEXT_DOMAIN),
-            [ 'description' => __('Links to related resources', BC_TEXT_DOMAIN) ]
+            __('BC Links'),
+            [ 'description' => __('Links to related resources') ]
         );
     }
     /**
@@ -39,7 +41,7 @@ class BCLinksWidget extends WP_Widget {
 ?><p>
     <label for="<?php echo $titleFieldId; ?>"><?php _e(esc_attr('Title:')); ?></label>
     <input class="widefat" id="<?php echo $titleFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
-    <label for="<?php echo $fbFieldId; ?>"><?php _e('Facebook:', BC_TEXT_DOMAIN); ?></label>
+    <label for="<?php echo $fbFieldId; ?>"><?php _e('Facebook:'); ?></label>
     <input class="widefat" id="<?php echo $fbFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('facebook')); ?>" type="url" value="<?php echo esc_attr($instance['facebook']); ?>" placeholder="https://www.facebook.com/MyPage/">
 </p><?php
 	}

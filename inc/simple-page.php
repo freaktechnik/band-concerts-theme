@@ -7,16 +7,16 @@
 
         if(!is_page()) { ?>
         <p><?php
-            echo BCTheme::get_icon('calendar');
+            echo \BandConcerts\Theme\Theme::get_icon('calendar');
             the_date(NULL, '<time datetime="'.get_the_date(DateTime::W3C).'">', '</time>');
             ?><br><?php
-            echo BCTheme::get_icon('user');
+            echo \BandConcerts\Theme\Theme::get_icon('user');
             the_author();
         ?></p><?php
         }
 
         if(!is_singular()) { ?></a><?php }
-        edit_post_link(null, '<p>'.BCTheme::get_icon('edit'), '</p>');
+        edit_post_link(null, '<p>'.\BandConcerts\Theme\Theme::get_icon('edit'), '</p>');
         if(is_page(get_the_ID()) && is_singular() && basename(get_page_template()) !== 'page_sublist.php') {
             $children = get_children([
                 'post_parent' => get_the_ID(),
