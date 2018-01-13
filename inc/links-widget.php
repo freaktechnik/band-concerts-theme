@@ -4,7 +4,7 @@ class BCLinksWidget extends WP_Widget {
         parent::__construct(
             'bc_links_widget',
             __('BC Links', BC_TEXT_DOMAIN),
-            __('BC Links', BC_TEXT_DOMAIN)
+            [ 'description' => __('Links to related resources', BC_TEXT_DOMAIN) ]
         );
     }
     /**
@@ -48,8 +48,8 @@ class BCLinksWidget extends WP_Widget {
      */
 	public function update($new_instance, $old_instance) {
 		$instance = [];
-		$instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        $instance['facebook'] = (!empty($new_instance['facebook'])) ? strip_tags($new_instance['facebook']) : '';
+		$instance['title'] = !empty($new_instance['title']) ? strip_tags($new_instance['title']) : '';
+        $instance['facebook'] = !empty($new_instance['facebook']) ? strip_tags($new_instance['facebook']) : '';
 		return $instance;
 	}
 }
