@@ -7,20 +7,19 @@
             $bc_css = [];
             foreach($concertseries as $cs) {
                 $concerts = BC_ConcertSeries::getConcertsForSeries($cs->ID);
-                $concerts = array_filter($concerts, function($i) {
+                $earliestConcertDate = NULL;
+                $concerts = array_filter($concerts, function($i) use(&$earliestConcertDate) {
                     $date = strtotime($i['date']);
-                    $i['time'] = $date;
-                    return $date > time();
+                    if($date > time()) {
+                        if(empty($earliestConcertDate) || $date < $earliestConcertDate) {
+                            $earliestConcertDate = $date;
+                        }
+                        return true;
+                    }
+                    return false;
                 });
                 if(!count($concerts)) {
                     continue;
-                }
-
-                $earliestConcertDate = NULL;
-                foreach($concerts as $c) {
-                    if(empty($earliestConcertDate) || $c['time'] < $earliestConcertDate) {
-                        $earliestConcertDate = $c['time'];
-                    }
                 }
 
                 $cs->concerts = $concerts;
@@ -60,7 +59,8 @@
             <h3>Auftritte</h3>
             <?php }
             $concerts = $cs->concerts;
-            include(dirname(__FILE__).'/inc/concert-dates.php') ?>
+            ?><div class="cf-two-columns"><?php
+            BCTheme::format_concerts($concerts, 'l j. F Y, H:i', false); ?></div>
         </article>
         <div class="bc_extras">
         <?php }

@@ -177,15 +177,36 @@ class BCTheme {
 HTML;
     }
 
-    static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i', $share = true) {
+    static function format_concerts(array $concerts, string $dateFormat = 'l j. F Y, H:i', bool $share = true)
+    {
+        if(count($concerts) == 1) {
+            ?><p><?php
+            BCTheme::format_details($concerts[0], $dateFormat, $share);
+            ?></p><?php
+        }
+        else { ?>
+        <ul><?php foreach($concerts as $concert) { ?>
+            <li><?php BCTheme::format_details($concert, $dateFormat, $share); ?></li>
+        <?php } ?>
+        </ul>
+        <?php
+        }
+    }
+
+    static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i', bool $share = true) {
         $entry = '';
+        if($concert['unco'] == 'unconfirmed' && strpos($dateFormat, 'H:i') !== FALSE) {
+            $dateFormat = 'l j. F Y';
+        }
         if($concert['fee'] != '-1') {
             $icon = BCTheme::get_icon('ticket-alt');
             $entry = '<br>'.$icon.'Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF');
         }
-        echo BCTheme::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time> Uhr<br>
+        echo BCTheme::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?><br>
         <?php
-        echo BCTheme::get_icon('location-arrow').$concert['location'].$entry;
+        if(!empty($concert['location'])) {
+            echo BCTheme::get_icon('location-arrow').$concert['location'].$entry;
+        }
         if($share) {
             ?><br><?php
             echo BCTheme::get_icon('share');
