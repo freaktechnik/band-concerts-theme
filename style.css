@@ -651,6 +651,10 @@ svg.fa-footer {
     .cf-two-columns *:first-child {
         margin-top: 0;
     }
+
+    .bc_first .cf-two-columns ul {
+        margin-left: 0;
+    }
 }
 
 @media only print {

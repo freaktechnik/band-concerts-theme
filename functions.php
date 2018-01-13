@@ -1,5 +1,6 @@
 <?php
 require_once 'inc/constants.php';
+require_once 'inc/links-widget.php';
 
 /*
  * All hooks/actions are defined at the end of this file.
@@ -221,13 +222,21 @@ HTML;
         }
     }
 
+    /**
+     * Adds the widget for the current edition.
+     */
+    public function onWidgets() {
+        register_widget('BCLinksWidget');
+        $this->add_sidebars();
+    }
+
     function __construct() {
         // Suddenly actions.
         add_action('after_setup_theme', [$this, 'add_support']);
         add_action('customize_register', [$this, 'customize_register']);
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_action('wp_head', [$this, 'custom_css']);
-        add_action('widgets_init', [$this, 'add_sidebars']);
+        add_action('widgets_init', [$this, 'onWidgets']);
         add_filter('tiny_mce_before_init', [$this, 'add_editor_style']);
     }
 }
