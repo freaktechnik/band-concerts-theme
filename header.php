@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
-        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta charset="<?php esc_attr(bloginfo('charset')); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
 
+        <meta name="msapplication-TileColor" content="#FFFFFF"/>
         <?php wp_head(); ?>
     </head>
     <body <?php body_class() ?>>
@@ -23,13 +24,13 @@
                     <?php if(has_custom_logo()) {
                         the_custom_logo();
                         if(\BandConcerts\Theme\Theme::alwaysShowName()) {
-                            ?><h1 class="logotitle"><a href="<?php echo get_home_url() ?>" rel="home"><?php
+                            ?><h1 class="logotitle"><a href="<?php echo esc_attr(get_home_url()) ?>" rel="home"><?php
                             bloginfo('name');
                             ?></a></h1><?php
                         }
                     }
                     else {
-                        ?><h1><a href="<?php echo get_home_url() ?>" rel="home"><?php
+                        ?><h1><a href="<?php echo esc_attr(get_home_url()) ?>" rel="home"><?php
                         bloginfo('name');
                         ?></a></h1><?php
                     } ?>
