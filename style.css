@@ -83,11 +83,22 @@ header {
     position: relative;
 }
 
+.custom-logo-link {
+    vertical-align: middle;
+}
+
 .custom-logo {
     max-width: 60%;
     height: auto;
     margin: 0 var(--trim);
     padding: 2rem 0;
+}
+
+.logotitle {
+    color: var(--accent-color);
+    font-size: 3em;
+    display: none;
+    visibility: hidden;
 }
 
 .upper-head {
@@ -251,7 +262,9 @@ main li {
     margin: 0.5rem 0;
 }
 
-.button {
+.button,
+.next.page-numbers,
+.prev.page-numbers {
     display: inline-block;
     text-decoration: none;
 }
@@ -402,7 +415,9 @@ footer input[type="button"]:active {
 }
 
 .wpcf7-form-control:not(.wpcf7-mailpoetsignup),
-a.button {
+a.button,
+a.next.page-numbers,
+a.prev.page-numbers {
     border: 1px solid var(--accent-color);
     line-height: 1.5em;
     padding: var(--form-padding);
@@ -413,7 +428,9 @@ a.button {
 .wpcf7 button,
 .wpcf7 input[type="submit"],
 .wpcf7 input[type="button"],
-a.button {
+a.button,
+a.next.page-numbers,
+a.prev.page-numbers {
     background-color: var(--background-color);
     color: var(--font-color);
 }
@@ -425,7 +442,11 @@ a.button {
 .wpcf7 button:hover,
 .wpcf7 button:active,
 a.button:hover,
-a.button:active {
+a.button:active,
+a.next.page-numbers:hover,
+a.next.page-numbers:active,
+a.prev.page-numbers:hover,
+a.prev.page-numbers:active {
     background-color: var(--accent-color);
     color: var(--accent-font-color);
 }
@@ -501,6 +522,11 @@ svg.fa-footer {
 @media screen AND (min-width: 1024px) {
     .big-only {
         display: block;
+        visibility: visible;
+    }
+
+    .logotitle {
+        display: inline-block;
         visibility: visible;
     }
 
@@ -582,8 +608,8 @@ svg.fa-footer {
     }
 
     main aside {
-        flex-basis: 20rem;
-        width: 20rem;
+        flex-basis: calc(33% - (8 * var(--trim)) / 3);
+        width: calc(33% - (8 * var(--trim)) / 3);
         flex-shrink: 0;
     }
 
@@ -597,8 +623,8 @@ svg.fa-footer {
     }
 
     article.two-columns aside {
-        width: 20rem;
-        flex-basis: 20rem;
+        flex-basis: calc(33% - (8 * var(--trim)) / 3);
+        width: calc(33% - (8 * var(--trim)) / 3);
         flex-shrink: 0;
         margin-right: var(--trim);
     }
@@ -654,6 +680,11 @@ svg.fa-footer {
 
     .bc_first .cf-two-columns ul {
         margin-left: 0;
+    }
+
+    .btt {
+        display: none;
+        visibility: hidden;
     }
 }
 

@@ -9,7 +9,7 @@
     </head>
     <body <?php body_class() ?>>
         <a href="#maincontent" class="skip-link"><?php _e('Skip to main content') ?></a>
-        <header class="main-head">
+        <header class="main-head" id="top">
             <div class="upper-head">
                 <?php if(is_page() && has_post_thumbnail()) { ?>
                 <div id="wp-custom-header" class="wp-custom-header"><?php
@@ -22,9 +22,16 @@
                 <div class="wrapper">
                     <?php if(has_custom_logo()) {
                         the_custom_logo();
+                        if(\BandConcerts\Theme\Theme::alwaysShowName()) {
+                            ?><h1 class="logotitle"><a href="<?php echo get_home_url() ?>" rel="home"><?php
+                            bloginfo('name');
+                            ?></a></h1><?php
+                        }
                     }
                     else {
+                        ?><h1><a href="<?php echo get_home_url() ?>" rel="home"><?php
                         bloginfo('name');
+                        ?></a></h1><?php
                     } ?>
                 </div>
             </div>

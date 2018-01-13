@@ -224,6 +224,11 @@ HTML;
         }
     }
 
+    public function alwaysShowName() {
+        //TODO add setting for this
+        return true;
+    }
+
     /**
      * Adds the widget for the current edition.
      */

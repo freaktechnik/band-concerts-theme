@@ -13,6 +13,7 @@
                 <?php dynamic_sidebar('footer3'); ?>
             </aside>
         </div>
+        <a href="#top" class="btt">Nach oben</a>
     </footer>
 <?php }
 wp_footer(); ?>
