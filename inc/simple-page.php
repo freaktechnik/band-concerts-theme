@@ -8,7 +8,7 @@
         if(!is_page()) { ?>
         <p><?php
             echo \BandConcerts\Theme\Theme::get_icon('calendar');
-            the_date(NULL, '<time datetime="'.get_the_date(DateTime::W3C).'">', '</time>');
+            the_date(NULL, '<time datetime="'.get_the_date(\DateTime::W3C).'">', '</time>');
             ?><br><?php
             echo \BandConcerts\Theme\Theme::get_icon('user');
             the_author();
