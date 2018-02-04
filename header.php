@@ -3,6 +3,7 @@
     <head>
         <meta charset="<?php esc_attr(bloginfo('charset')); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <link rel="profile" href="http://gmpg.org/xfn/11">
 
         <meta name="msapplication-TileColor" content="#FFFFFF"/>

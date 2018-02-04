@@ -109,6 +109,8 @@ class Theme {
      */
     function scripts() {
         wp_enqueue_style('bc-style', get_stylesheet_uri(), []);
+        // modified to call `svg4everybody();`
+        wp_enqueue_script('svg4everybody', get_template_directory_uri().'/js/svg4everybody.min.js', [], '2.1.9', false);
     }
 
     /*

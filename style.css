@@ -520,7 +520,7 @@ svg.fa-footer {
     fill: var(--link-color);
 }
 
-@media (-moz-touch-enabled: 0), (pointer: fine) {
+@media (-moz-touch-enabled: 0), (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
     :root {
         --form-radius: 2px;
         --form-padding: 0.25em;
@@ -532,6 +532,62 @@ svg.fa-footer {
 
     .wpcf7 input[type="checkbox"] {
         --checkbox-size: 1rem;
+    }
+}
+
+@media screen AND (min-width: 1024px) AND (-moz-touch-enabled: 0), (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #menubutton {
+        display: none;
+        visibility: hidden;
+    }
+
+    header .spanner {
+        display: block;
+        visibility: visible;
+        position: relative;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        overflow: visible;
+        max-height: none;
+        box-shadow: 0 0 .5rem var(--shadow-color);
+    }
+
+    header ul.menu,
+    header nav.menu > ul {
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    header ul.menu > li,
+    header nav.menu > ul > li {
+        display: inline-block;
+    }
+
+    header ul.menu > li:not(:last-child),
+    header nav.menu > ul > li:not(:last-child) {
+        border-bottom: none;
+    }
+
+    header .menu li > ul.sub-menu,
+    header .menu li > ul.children {
+        max-height: 0px;
+        overflow: hidden;
+        margin: 0;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s 0.04s,
+                    max-height 2s 0.1s;
+
+        box-shadow: 0 0 .5rem var(--shadow-color);
+        z-index: -1;
+    }
+
+    header .menu li:hover > ul.sub-menu,
+    header .menu li:hover > ul.children {
+        padding: 1rem;
+        opacity: 1;
+        max-height: 1000vw;
     }
 }
 
@@ -556,87 +612,98 @@ svg.fa-footer {
         max-width: 40rem;
     }
 
-    @media (-moz-touch-enabled: 0), (hover: hover) {
-        #menubutton {
-            display: none;
-            visibility: hidden;
-        }
-
-        header .spanner {
-            display: block;
-            visibility: visible;
-            position: relative;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            overflow: visible;
-            max-height: none;
-            box-shadow: 0 0 .5rem var(--shadow-color);
-        }
-
-        header ul.menu,
-        header nav.menu > ul {
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        header ul.menu > li,
-        header nav.menu > ul > li {
-            display: inline-block;
-        }
-
-        header ul.menu > li:not(:last-child),
-        header nav.menu > ul > li:not(:last-child) {
-            border-bottom: none;
-        }
-
-        header .menu li > ul.sub-menu,
-        header .menu li > ul.children {
-            max-height: 0px;
-            overflow: hidden;
-            margin: 0;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 0.3s 0.04s,
-                        max-height 2s 0.1s;
-
-            box-shadow: 0 0 .5rem var(--shadow-color);
-            z-index: -1;
-        }
-
-        header .menu li:hover > ul.sub-menu,
-        header .menu li:hover > ul.children {
-            padding: 1rem;
-            opacity: 1;
-            max-height: 1000vw;
-        }
+    main .wrapper {
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
     }
 
-    main .wrapper {
+    main .main {
+        -ms-flex: 1 0 632px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 632px;
+        padding-right: 1rem;
+    }
+
+    main .wrapper div {
         width: 100%;
+    }
+
+    main aside {
+        -ms-flex: 1 0 calc(33% - (8/3) * 1rem);
+        flex-basis: calc(33% - (8/3) * 1rem);
+        width: calc(33% - (8/3) * 1rem);
+        flex-shrink: 0;
     }
 
     main aside h1 {
         margin-bottom: 0.2rem;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
         hyphens: auto;
         overflow-wrap: break-word;
     }
 
     main article.two-columns {
         width: 100%;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+
+    article.two-columns section {
+        -ms-flex: 0 1 66%;
+        flex-grow: 1;
+        margin-top: 1rem;
+    }
+
+
+    article.two-columns aside {
+        -ms-flex: 0 1 calc(33% - (8/3) * 1rem);
+        flex-shrink: 0;
+        flex-basis: calc(33% - (8/3) * 1rem);
+        width: calc(33% - (8/3) * 1rem);
+        margin-right: 1rem;
     }
 
     article.two-columns section p:first-child {
         margin-top: 0;
     }
 
+    footer .footer-inner {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
     footer .footer-inner > aside {
+        -ms-flex: 1 0 calc(33% - 2rem / 3);
+        flex-basis: calc(33% - 2rem / 3);
+        flex-grow: 1;
         max-width: 33%;
     }
 
     footer .footer-inner > aside:not(:last-child) {
         margin-right: 1rem;
         margin-bottom: 0;
+    }
+
+    .bc_extras {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .bc_extra {
+        -ms-flex: 1 0 calc(50% - .5rem);
+        flex-basis: calc(50% - .5rem);
     }
 
     .cf-two-columns {
@@ -659,62 +726,6 @@ svg.fa-footer {
     .btt {
         display: none;
         visibility: hidden;
-    }
-
-    @supports (display: flex) {
-        main .wrapper {
-            display: flex;
-        }
-
-        main .main {
-            flex-grow: 1;
-            flex-shrink: 0;
-            flex-basis: 632px;
-            padding-right: 1rem;
-        }
-
-        main aside {
-          flex-basis: calc(33% - (8/3) * 1rem);
-          width: calc(33% - (8/3) * 1rem);
-          flex-shrink: 0;
-        }
-
-        main article.two-columns {
-            display: flex;
-        }
-
-        article.two-columns section {
-            flex-grow: 1;
-            margin-top: 1rem;
-        }
-
-        article.two-columns aside {
-            flex-basis: calc(33% - (8/3) * 1rem);
-            width: calc(33% - (8/3) * 1rem);
-            flex-shrink: 0;
-            margin-right: 1rem;
-        }
-
-        .bc_extras {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .bc_extra {
-            flex-basis: calc(50% - .5rem);
-        }
-
-        footer .footer-inner {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        footer .footer-inner > aside {
-            flex-basis: calc(33% - 2rem / 3);
-            flex-grow: 1;
-        }
     }
 }
 
