@@ -105,10 +105,10 @@ header {
     position: relative;
 }
 
-.upper-head a,
-.upper-head a:hover,
-.upper-head a:active,
-.upper-head a:focus {
+.upper-head a:not(.image),
+.upper-head a:not(.image):hover,
+.upper-head a:not(.image):active,
+.upper-head a:not(.image):focus {
     border: none;
 }
 
@@ -219,7 +219,7 @@ header .children li.current_page_item {
 }
 
 #menu-toggle:checked + .spanner {
-    max-height: 200%;
+    max-height: none;
 }
 
 /* CONTENT */
@@ -304,7 +304,8 @@ main .menu li:hover {
 }
 
 main .menu li > a,
-main .menu li > a:link {
+main .menu li > a:link,
+main .menu li > a:visited {
     /* Need the important for a broken cascade on Firefox :( */
     --link-color: var(--accent-alternate-font-color) !important;
 }
@@ -467,7 +468,9 @@ a.prev.page-numbers:active {
     appearance: none;
     border: 1px solid var(--accent-color);
     background-color: var(--background-color);
+    height: 2rem;
     height: var(--checkbox-size);
+    width: 2rem;
     width: var(--checkbox-size);
     border-radius: 5px;
     border-radius: var(--form-radius);
@@ -483,9 +486,13 @@ a.prev.page-numbers:active {
     content: '✓';
     color: var(--accent-font-color);
     position: absolute;
+    height: 2rem;
     height: var(--checkbox-size);
+    height: 2rem;
     width: var(--checkbox-size);
+    font-size: 1.6rem;
     font-size: calc(0.8 * var(--checkbox-size));
+    line-height: 2rem;
     line-height: var(--checkbox-size);
     display: block;
     text-align: center;
