@@ -9,7 +9,7 @@ $ignoredKeys = [
 ?>
 
 
-@supports(--css: variables) {
+@supports (--css: variables) {
     :root {
         --background-color: #<?php background_color(); ?>;
     <?php foreach(Constants::COLORS as $key => $color) {
