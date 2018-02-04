@@ -21,13 +21,9 @@ body {
     line-height: 1.4;
     letter-spacing: 0.04em;
 
-    --trim: 1rem;
-    --font-family-title: 'Exo 2', sans-serif;
-    --font-weight-title: 600;
-    --font-family-text: 'Rubik', sans-serif;
     color: var(--font-color);
     background-color: var(--background-color);
-    font-family: var(--font-family-text);
+    font-family: 'Rubik', sans-serif;
 }
 
 img {
@@ -62,10 +58,10 @@ a:not(.image):focus {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: serif;
-    font-family: var(--font-family-title);
-    font-weight: var(--font-weight-title);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
     letter-spacing: 0.01em;
-    margin-top: var(--trim);
+    margin-top: 1rem;
     margin-bottom: 0.5em;
     text-align: left;
     -ms-hyphens: none;
@@ -92,7 +88,7 @@ p {
 blockquote {
     margin: 0.5rem 0;
     border-left: 0.5rem solid var(--accent-alternate-color);
-    padding-left: var(--trim);
+    padding-left: 1rem;
     font-style: italic;
     text-align: left;
 }
@@ -141,27 +137,27 @@ hr {
 
 textarea, input[type='text'], input[type='number'], input[type='email'], input[type='tel'] {
     font-family: sans-serif;
-    font-family: var(--font-family-text);
+    font-family: 'Rubik', sans-serif;
     font-size: 1em;
 }
 
 .alignleft {
     float: left;
-    margin-right: var(--trim);
-    margin-bottom: var(--trim);
-    margin-top: var(--trim);
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .alignright {
     float: right;
-    margin-left: var(--trim);
-    margin-bottom: var(--trim);
-    margin-top: var(--trim);
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .aligncenter {
     display: block;
-    margin: var(--trim) auto;
+    margin: 1rem auto;
 }
 
 .alignright:first-child,
@@ -177,6 +173,6 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
 }
 
 .alignnone {
-    margin: var(--trim) 0;
+    margin: 1rem 0;
     display: block;
 }
