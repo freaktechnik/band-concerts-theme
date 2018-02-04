@@ -21,6 +21,7 @@ The plugin is required for the theme to work properly.
 ## Dependencies
 Requires the FontAwesome `fa-brands.svg` and `fa-solid.svg` in the `./images` folder.
 Requires the Exo2 and Rubik fonts in the `./fonts` folder.
+Requires a minimally modified (see `functions.php`) `svg4everybody.min.js` in the `./js` folder.
 
 ## License
 [MIT](./LICENSE)
