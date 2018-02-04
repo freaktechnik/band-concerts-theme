@@ -48,8 +48,7 @@ $variableSelectors = [
         'header .spanner' => 'color',
         '.menu li:not(:last-child)' => 'boder-bottom: 1px solid',
         '.menu > li a, .menu li > a:link, .menu li > a:visited' => 'color',
-        '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover,
-        a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'color',
+        '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'color',
         '.wpcf7 input[type="checkbox"]:checked::after' => 'color',
         '.menu li:not(:last-child)' => 'border-bottom: 1px solid',
     ],
@@ -91,17 +90,19 @@ $variableSelectors = [
     ],
 ];
 
-//TODO footer accent font color
-//TODO do wpcf/button colors work?
+$resolvedColors = [];
+foreach(Constants::COLORS as $var => $val) {
+    $resolvedColors[$var] = get_theme_mod($var, $val);
+}
 
 $css = [];
 foreach($variableSelectors as $var => $selectors) {
     foreach($selectors as $selector => $prop) {
         if(strpos($prop, ':') === false) {
-            $line = $prop.': '.get_theme_mod($var, Constants::COLORS[$var]).';';
+            $line = $prop.': '.$resolvedColors[$var];
         }
         else {
-            $line = $prop.' '.get_theme_mod($var, Constants::COLORS[$var]).';';
+            $line = $prop.' '.$resolvedColors[$var];
         }
         $css[$selector][] = $line;
     }
@@ -110,7 +111,7 @@ foreach($css as $selector => $lines) {
     echo $selector;
     echo "{";
     foreach($lines as $line) {
-        echo $line."";
+        echo $line.";";
     }
     echo "}\n";
 }
@@ -124,7 +125,7 @@ foreach($css as $selector => $lines) {
             continue;
         }
         $cssColor = Constants::key_to_cssvar($key);
-        echo '--'.$cssColor.': '.get_theme_mod($key, $color).';';
+        echo '--'.$cssColor.': '.$resolvedColors[$key].';';
     } ?>
     }
 }
