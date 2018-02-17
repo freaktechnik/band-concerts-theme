@@ -124,6 +124,10 @@ hr {
     border-color: #AAAAAA; /* Gecko */
 }
 
+li > a {
+    vertical-align: top;
+}
+
 .gallery {
     display: flex;
     justify-content: space-around;
