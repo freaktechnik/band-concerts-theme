@@ -532,13 +532,16 @@ svg.fa-footer {
     fill: var(--link-color);
 }
 
-.detailicon.fa-font {
-    float: left;
-    /* compensate for line-height */
-    margin-top: 0.3em;
+.detail {
+    position: relative;
 }
 
-.detailicon.fa-font + .detail {
+.detail > .fa-font {
+    position: absolute;
+    top: 0.1em;
+}
+
+.detail span {
     display: block;
     margin-left: 1.2em;
 }
@@ -676,14 +679,14 @@ svg.fa-footer {
     }
 
 
-    article.two-columns section {
+    article.two-columns > section {
         -ms-flex: 0 1 66%;
         flex-grow: 1;
         margin-top: 1rem;
     }
 
 
-    article.two-columns aside {
+    article.two-columns > aside {
         -ms-flex: 0 1 calc(33% - (8/3) * 1rem);
         flex-shrink: 0;
         flex-basis: calc(33% - (8/3) * 1rem);
@@ -691,7 +694,7 @@ svg.fa-footer {
         margin-right: 1rem;
     }
 
-    article.two-columns section p:first-child {
+    article.two-columns > section p:first-child {
         margin-top: 0;
     }
 
