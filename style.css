@@ -461,7 +461,8 @@ a.prev.page-numbers:active {
     --link-color: var(--accent-font-color);
 }
 
-.wpcf7 input[type="checkbox"] {
+.wpcf7 input[type="checkbox"],
+.wpcf7 input[type="radio"] {
     --checkbox-size: 2rem;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -478,11 +479,13 @@ a.prev.page-numbers:active {
     padding: 0;
 }
 
-.wpcf7 input[type="checkbox"]:checked {
+.wpcf7 input[type="checkbox"]:checked,
+.wpcf7 input[type="radio"] {
     background-color: var(--accent-color);
 }
 
-.wpcf7 input[type="checkbox"]:checked::after {
+.wpcf7 input[type="checkbox"]:checked::after,
+.wpcf7 input[type="radio"]:checked::after {
     content: '✓';
     color: var(--accent-font-color);
     position: absolute;
@@ -496,6 +499,11 @@ a.prev.page-numbers:active {
     line-height: var(--checkbox-size);
     display: block;
     text-align: center;
+}
+
+.wpcf7 input[type="radio"] {
+    border-radius: 1rem;
+    border-radius: calc(0.5 * var(--checkbox-size));
 }
 
 /*
@@ -530,7 +538,8 @@ svg.fa-footer {
         padding: initial;
     }
 
-    .wpcf7 input[type="checkbox"] {
+    .wpcf7 input[type="checkbox"],
+    .wpcf7 input[type="radio"] {
         --checkbox-size: 1rem;
     }
 }
