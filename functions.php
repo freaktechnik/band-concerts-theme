@@ -204,16 +204,16 @@ HTML;
             $dateFormat = 'l j. F Y';
         }
         if($concert['fee'] != '-1') {
-            $icon = self::get_icon('ticket-alt');
-            $entry = '<br>'.$icon.'Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF');
+            $icon = self::get_icon('ticket-alt', 'solid', 'fa-font detailicon');
+            $entry = $icon.'<span class="detail">Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF').'</span>';
         }
-        echo self::get_icon('calendar'); ?><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?><br>
+        echo self::get_icon('calendar', 'solid', 'fa-font detailicon'); ?><span class="detail"><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?></span>
         <?php
         if(!empty($concert['location'])) {
-            echo self::get_icon('location-arrow').$concert['location'].$entry;
+            ?><?php echo self::get_icon('location-arrow', 'solid', 'fa-font detailicon'); ?><span class="detail"><?php echo $concert['location']; ?></span><?php echo $entry;
         }
         if($share) {
-            ?><br><?php
+            ?><?php
             echo self::get_icon('share');
             ?><a href="<?php echo get_permalink($concert['id']) ?>" title="In Kalender Exportieren"><?php
             echo self::get_icon('calendar-plus');

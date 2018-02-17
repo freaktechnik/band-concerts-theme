@@ -532,6 +532,17 @@ svg.fa-footer {
     fill: var(--link-color);
 }
 
+.detailicon.fa-font {
+    float: left;
+    /* compensate for line-height */
+    margin-top: 0.3em;
+}
+
+.detailicon.fa-font + .detail {
+    display: block;
+    margin-left: 1.2em;
+}
+
 @media (-moz-touch-enabled: 0), (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
     :root {
         --form-radius: 2px;
