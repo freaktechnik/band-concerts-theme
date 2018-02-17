@@ -15,7 +15,7 @@ $variableSelectors = [
         '.skip-link:focus' => 'background-color',
         'main' => 'background-color',
         '.wpcf7 button, .wpcf7 input[type="submit"], .wpcf7 input[type="button"], a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'background-color',
-        '.wpcf7 input[type="checkbox"]' => 'background-color',
+        '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'background-color',
         'body' => 'background-color',
     ],
     'text_color' => [
@@ -33,10 +33,10 @@ $variableSelectors = [
         '#menubutton' => 'background-color',
         'header .spanner' => 'background-color',
         'header .sub-menu li:hover, header .sub-menu li:active, header .sub-menu li.current-menu-item, header .children li:hover, header .children li:active, header .children li.current_page_item' => 'background-color',
-        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
+        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
         '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'background-color',
-        '.wpcf7 input[type="checkbox"]' => 'border: 1px solid',
-        '.wpcf7 input[type="checkbox"]:checked' => 'background-color',
+        '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'border: 1px solid',
+        '.wpcf7 input[type="checkbox"]:checked,.wpcf7 input[type="radio"]:checked' => 'background-color',
     ],
     'accent_hover_color' => [
         '#menubutton:hover, #menubutton:active' => 'background-color',
@@ -49,7 +49,7 @@ $variableSelectors = [
         '.menu li:not(:last-child)' => 'boder-bottom: 1px solid',
         '.menu > li a, .menu li > a:link, .menu li > a:visited' => 'color',
         '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'color',
-        '.wpcf7 input[type="checkbox"]:checked::after' => 'color',
+        '.wpcf7 input[type="checkbox"]:checked::after,.wpcf7 input[type="radio"]:checked::after' => 'color',
         '.menu li:not(:last-child)' => 'border-bottom: 1px solid',
     ],
     'accent_alternate_color' => [

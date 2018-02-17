@@ -37,6 +37,7 @@
         if(!is_page()) {
             the_post_thumbnail();
         }
+        //TODO make the more link customizable
         the_content();
     ?>
     </section>

@@ -415,13 +415,13 @@ footer input[type="button"]:active {
 }
 
 /* Contact form */
-.wpcf7-form-control-wrap,
-.wpcf7-form-control:not(.wpcf7-submit) {
+.wpcf7-form-control-wrap:not(.wpcf7-radio),
+.wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-radio) {
     width: 100%;
     box-sizing: border-box;
 }
 
-.wpcf7-form-control:not(.wpcf7-mailpoetsignup),
+.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio),
 a.button,
 a.button:link,
 a.next.page-numbers,
@@ -504,6 +504,10 @@ a.prev.page-numbers:active {
 .wpcf7 input[type="radio"] {
     border-radius: 1rem;
     border-radius: calc(0.5 * var(--checkbox-size));
+}
+
+span.wpcf7-list-item {
+    display: block;
 }
 
 /*
