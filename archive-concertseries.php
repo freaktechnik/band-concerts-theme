@@ -10,8 +10,15 @@
             <a href="<?php the_permalink() ?>"><?php the_title('<h1>', '</h1>'); ?></a>
             <?php $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries(get_the_ID());
             $years = [];
+            $now = time();
             foreach($concerts as $c) {
-                $year = get_the_date('Y', $c['id']);
+                $date = get_the_date('d.m.Y', $c['id']);
+                if(strtotime($date) > $now) {
+                    $year = $date;
+                }
+                else {
+                    $year = get_the_date('Y', $c['id']);
+                }
                 if(!in_array($year, $years)) {
                     $years[] = $year;
                 }

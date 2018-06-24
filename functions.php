@@ -163,7 +163,7 @@ class Theme {
     function add_editor_style(array $mceInit) {
         ob_start();
         include __DIR__.'/inc/css-vars.php';
-        $styles = str_replace("\n", "", ob_get_clean());
+        $styles = str_replace([ "\n", "\"" ], [ "", "\\\"" ], ob_get_clean());
         if(!isset($mceInit['content_style'])) {
             $mceInit['content_style'] = $styles . ' ';
         }
