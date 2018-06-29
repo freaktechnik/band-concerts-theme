@@ -6,11 +6,13 @@ Template Post Type: page
 get_header(); ?>
 <div>
 <?php
-$q = new WP_Query([
-    'post_type' => 'post'
+$oldq = $wp_query;
+$wp_query = new WP_Query([
+    'post_type' => 'post',
+    'paged' => get_query_var('paged') ?? 1,
 ]);
-while($q->have_posts()) {
-        $q->the_post(); ?>
+while($wp_query->have_posts()) {
+        $wp_query->the_post(); ?>
     <article id="concert-<?php the_ID(); ?>" <?php post_class([
         'two-columns'
     ]); ?>>
@@ -36,6 +38,7 @@ the_posts_pagination([
     'prev_text' => 'Vorherige',
     'next_text' => 'Nächste',
     'screen_reader_text' => 'Posts navigation'
-]); ?>
+]);
+$wp_query = $oldq; ?>
 </div>
 <?php get_footer(); ?>

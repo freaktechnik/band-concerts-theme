@@ -35,7 +35,7 @@ class Theme {
      * menu and editor styles.
      */
     function add_support() {
-        add_theme_support('post-thumbnails', [ 'concertseries', 'page' ]);
+        add_theme_support('post-thumbnails', [ 'concertseries', 'post', 'page' ]);
         add_theme_support('custom-logo', [
             'height' => 140,
             'width' => 560,

@@ -34,8 +34,14 @@
             ?>
         </aside>
         <section>
-            <?php the_post_thumbnail();
+            <?php
+            ob_start();
+            the_post_thumbnail();
             the_content('(ganzer Beschrieb...)');
+            $content = ob_get_flush();
+            if(!strlen($content)) {
+            ?><div class="concert-placeholder"><?php echo \BandConcerts\Theme\Theme::get_icon(\BandConcerts\ConcertSeries::isConcert(get_the_ID()) ? 'music' : 'calendar', 'solid', 'fa-placeholder') ?></div><?php
+            }
             ?>
         </section>
     </article><?php

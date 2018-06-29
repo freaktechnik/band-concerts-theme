@@ -42,13 +42,18 @@ if($thumbnail = get_the_post_thumbnail_url()) {
     </aside>
     <section>
         <?php
+        ob_start();
         the_post_thumbnail();
         the_content();
         $review = apply_filters( 'the_content', get_post_meta(get_the_ID(), \BandConcerts\ConcertSeries::REVIEW_FIELD, true));
+        $content = ob_get_flush();
         if(!empty($review)) { ?>
         <h2 id="review"><?php echo \BandConcerts\ConcertSeries::IsConcert(get_the_ID()) ? 'Konzertbericht' : 'Rückblick'; ?></h2>
         <p><?php echo $review; ?></p>
-        <?php } ?>
+        <?php }
+        else if(!strlen($content)) {
+        ?><div class="concert-placeholder"><?php echo \BandConcerts\Theme\Theme::get_icon(\BandConcerts\ConcertSeries::isConcert(get_the_ID()) ? 'music' : 'calendar', 'solid', 'fa-placeholder') ?></div><?php
+        } ?>
     </section>
 </article>
 <script type="application/ld+json">

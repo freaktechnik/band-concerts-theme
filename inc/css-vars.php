@@ -55,6 +55,9 @@ $variableSelectors = [
     'accent_alternate_color' => [
         'main aside' => 'background-color',
         'blockquote' => 'border-left: 0.5rem solid',
+        'main aside .button' => 'background-color',
+        '.concert-placeholder' => 'border: 1px solid',
+        'svg.fa-placeholder' => 'fill',
     ],
     'accent_alternate_hover_color' => [
         'main .menu li:hover' => 'background-color',

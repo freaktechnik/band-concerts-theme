@@ -139,6 +139,10 @@ li > a {
     margin: 0;
 }
 
+.gallery.gallery-size-thumbnail figcaption {
+    width: 150px;
+}
+
 textarea, input[type='text'], input[type='number'], input[type='email'], input[type='tel'] {
     font-family: sans-serif;
     font-family: 'Rubik', sans-serif;
