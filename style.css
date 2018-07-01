@@ -261,7 +261,15 @@ main aside .button {
 
 main ul {
     padding-left: 1rem;
+}
+
+main ul {
     margin-left: 1rem;
+}
+
+body.home main ul,
+body.single-concertseries article aside ul {
+    margin-left: 0;
 }
 
 main li {

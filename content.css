@@ -184,3 +184,7 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
     margin: 1rem 0;
     display: block;
 }
+
+.wp-caption {
+    max-width: 100%;
+}

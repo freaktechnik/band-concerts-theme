@@ -54,6 +54,7 @@ class Theme {
         // Bigger sizes so it scales on hidpi displays
         add_image_size('header-logo-2x', 1120, 280);
         //TODO no srcset?
+        update_option('large_size_w', 664);
 
         add_theme_support('html5', [
             'search-form',
@@ -185,9 +186,7 @@ HTML;
     static function format_concerts(array $concerts, string $dateFormat = 'l j. F Y, H:i', bool $share = true)
     {
         if(count($concerts) == 1) {
-            ?><p><?php
             self::format_details($concerts[0], $dateFormat, $share);
-            ?></p><?php
         }
         else { ?>
         <ul><?php foreach($concerts as $concert) { ?>
