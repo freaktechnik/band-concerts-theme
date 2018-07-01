@@ -267,8 +267,8 @@ main ul {
     margin-left: 1rem;
 }
 
-body.home main ul,
-body.single-concertseries article aside ul {
+body.home .main ul,
+body main aside ul {
     margin-left: 0;
 }
 
@@ -362,6 +362,15 @@ main article {
 /* Front page */
 
 .bc_first .wp-post-image {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bc_extra > a:first-child + section {
+    margin-top: 0.5rem;
+}
+
+.bc_extra ul {
     margin-top: 0.5rem;
 }
 
