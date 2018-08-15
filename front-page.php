@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+global $post;
+get_header(); ?>
     <section class="main">
         <h1>Nächste Termine</h1>
         <?php
@@ -53,7 +55,10 @@
             <a href="<?php echo get_permalink($cs) ?>"><h2><?php echo get_the_title($cs) ?></h2></a>
             <?php echo get_the_post_thumbnail($cs);
             ?><section><?php
-                echo $cs->post_content;
+                setup_postdata($cs);
+                // get_permalink() is silly and loop dependent instead of the_post dependent
+                echo str_replace(get_permalink(), get_permalink($cs), get_the_content('(ganzer Beschrieb...)'));
+                wp_reset_postdata();
             ?></section><?php
             if(\BandConcerts\ConcertSeries::isConcert($cs->ID)) { ?>
             <h3>Auftritte</h3>
