@@ -74,10 +74,14 @@ get_header(); ?>
             <a href="<?php echo get_permalink($cs) ?>"><h2><?php echo get_the_title($cs) ?></h2></a>
             <?php
             if($cs->post_type === 'post') { ?>
-                <p><time datetime="<?php echo get_the_date(\DateTime::W3C, $cs); ?>"><?php echo get_the_date(NULL, $cs); ?></time></p>
-                <p><?php
-                echo get_the_author_meta('display_name', $cs->post_author); ?>
-                </p><?php
+                <section class="detail">
+                    <?php echo \BandConcerts\Theme\Theme::get_icon('calendar'); ?>
+                    <span><time datetime="<?php echo get_the_date(\DateTime::W3C, $cs); ?>"><?php echo get_the_date(NULL, $cs); ?></time></span>
+                </section>
+                <section class="detail">
+                    <?php echo \BandConcerts\Theme\Theme::get_icon('user'); ?>
+                    <span><?php echo get_the_author_meta('display_name', $cs->post_author); ?></span>
+                </section><?php
             }
             else {
                 $concerts = $cs->concerts;
