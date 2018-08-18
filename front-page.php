@@ -96,7 +96,29 @@ get_header(); ?>
         <?php }
         else { ?>
         </div><p><a href="index.php/concert/" class="button">Alle Aktivitäten</a></p>
-        <?php } ?>
+        <?php
+            $itemList = [
+                '@context' => 'http://schema.org',
+                '@type' => 'ItemList',
+                'itemListElement' => []
+            ];
+            $i = 0;
+            foreach($bc_css as $cs) {
+                if($cs->post_type !== 'post') {
+                    $item = [
+                        '@type' => 'ListItem',
+                        'position' => ++$i,
+                        'url' => get_permalink($cs)
+                    ];
+                    $itemList['itemListElement'][] = $item;
+                }
+            }
+            if(!empty($itemList['itemListElement'])) {
+                echo '<script type="application/ld+json">';
+                echo json_encode($itemList, JSON_UNESCAPED_SLASHES);
+                echo '</script>';
+            }
+        } ?>
     </section>
     <?php if(is_active_sidebar('aside')) { ?>
     <aside>
