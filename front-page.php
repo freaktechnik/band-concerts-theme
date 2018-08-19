@@ -34,7 +34,7 @@ get_header(); ?>
             $itemCount = 5;
             $bc_css = array_slice($bc_css, 0, $itemCount);
 
-            if(count($bc_css) > 1 && count($bc_css) < $itemCount) {
+            if(count($bc_css) > 1 && count($bc_css) == 2 || count($bc_css) == $itemCount - 1) {
                 $postQuery = new WP_Query([
                     'post_type' => 'post',
                     'post_status' => 'publish',
