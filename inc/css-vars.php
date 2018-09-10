@@ -33,7 +33,7 @@ $variableSelectors = [
         '#menubutton' => 'background-color',
         'header .spanner' => 'background-color',
         'header .sub-menu li:hover, header .sub-menu li:active, header .sub-menu li.current-menu-item, header .children li:hover, header .children li:active, header .children li.current_page_item' => 'background-color',
-        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
+        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
         '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'background-color',
         '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'border: 1px solid',
         '.wpcf7 input[type="checkbox"]:checked,.wpcf7 input[type="radio"]:checked' => 'background-color',

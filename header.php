@@ -38,7 +38,7 @@
                 </div>
             </div>
             <nav>
-                <label id="menubutton" class="mobile-only" aria-label="Menu" for="menu-toggle" aria-controls="menu">&#9776;</label>
+                <label id="menubutton" class="mobile-only" title="Menu" for="menu-toggle" aria-controls="menu">&#9776;</label>
                 <input type="checkbox" id="menu-toggle">
                 <div class="spanner">
                     <div class="wrapper">

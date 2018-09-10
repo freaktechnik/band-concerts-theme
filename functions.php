@@ -115,7 +115,8 @@ class Theme {
      */
     function scripts()
     {
-        wp_enqueue_style('bc-style', get_stylesheet_uri(), []);
+        wp_enqueue_style('bc-style-content', get_template_directory_uri().'/content.css', []);
+        wp_enqueue_style('bc-style', get_template_directory_uri().'/style.css', [ 'bc-style-content' ]);
         // modified to call `svg4everybody();`
         wp_enqueue_script('svg4everybody', get_template_directory_uri().'/js/svg4everybody.min.js', [], '2.1.9', false);
     }
@@ -225,11 +226,16 @@ HTML;
             ?><section class="detail"><?php echo self::get_icon('location-arrow'); ?><span><?php echo $concert['location']; ?></span></section><?php echo $entry;
         }
         if($share) {
+            $inFuture = strtotime($concert[$concert['dateend'] ? 'dateend' : 'date']) > time();
             ?><section><?php
-            echo self::get_icon('share');
+            if($inFuture || $concert['fbevent']) {
+                echo self::get_icon('share');
+            }
+            if($inFuture) {
             ?><a href="<?php echo get_permalink($concert['id']) ?>" title="In Kalender Exportieren"><?php
             echo self::get_icon('calendar-plus');
             ?>Termin exportieren</a><?php
+            }
             if($concert['fbevent']) {
                 ?> <a href="<?php echo $concert['fbevent'] ?>" rel="external noopener" title="Facebook Event"><?php
                 echo self::get_icon('facebook', 'brands');

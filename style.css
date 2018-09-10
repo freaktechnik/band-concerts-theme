@@ -1,5 +1,3 @@
-@import url("content.css");
-
 @viewport {
     min-width: device-width;
     zoom: 100%;
@@ -72,6 +70,7 @@ header {
 .wp-custom-header img,
 .wp-custom-header video {
     max-width: unset;
+    max-width: 100vw;
     object-fit: cover;
     object-position: center;
     height: 100%;
@@ -460,7 +459,7 @@ footer input[type="button"]:active {
     box-sizing: border-box;
 }
 
-.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio),
+.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha),
 a.button,
 a.button:link,
 a.next.page-numbers,
