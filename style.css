@@ -1,6 +1,7 @@
 @viewport {
     min-width: device-width;
     zoom: 100%;
+    viewport-fit: cover;
 }
 
 :root {
@@ -80,6 +81,9 @@ header {
 .main-head .upper-head .wrapper {
     background-color: rgba(255, 255, 255, 0.6);
     position: relative;
+
+    padding-top: 0;
+    padding-top: env(safe-area-inset-top);
 }
 
 .custom-logo-link {
@@ -235,6 +239,13 @@ main .wrapper {
     padding: 0 1rem;
 }
 
+@supports(padding: max(0px)) {
+    main .wrapper {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+}
+
 main a:not(.image) {
     padding: 0.5em 0;
 }
@@ -383,6 +394,12 @@ footer {
 
     --link-color: var(--footer-font-color);
     --accent-font-color: var(--footer-font-color);
+}
+
+@supports(padding-bottom: max(0px)) {
+    footer {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
 }
 
 footer .wrapper div,

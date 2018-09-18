@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
     <head>
         <meta charset="<?php esc_attr(bloginfo('charset')); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <link rel="profile" href="http://gmpg.org/xfn/11">
 
