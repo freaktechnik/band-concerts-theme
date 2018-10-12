@@ -274,6 +274,10 @@ main aside h2 {
     margin-bottom: 0;
 }
 
+main aside section:first-child h2 {
+    margin-top: 0;
+}
+
 main aside .button {
     background-color: var(--accent-alternate-color);
 }

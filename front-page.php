@@ -56,8 +56,8 @@ get_header(); ?>
             <?php echo get_the_post_thumbnail($cs);
             ?><section><?php
                 setup_postdata($cs);
-                // get_permalink() is silly and loop dependent instead of the_post dependent
-                echo str_replace(get_permalink(), get_permalink($cs), get_the_content('(ganzer Beschrieb...)'));
+                $post = $cs;
+                echo get_the_content('(ganzer Beschrieb...)');
                 wp_reset_postdata();
             ?></section><?php
             if(\BandConcerts\ConcertSeries::isConcert($cs->ID)) { ?>
