@@ -1,8 +1,14 @@
 <?php get_header(); ?>
 <div>
 <?php
+    $itemList = [
+        '@context' => 'http://schema.org',
+        '@type' => 'ItemList',
+        'itemListElement' => []
+    ];
+    $itemPosition = 0;
     while(have_posts()) {
-    the_post(); ?>
+        the_post(); ?>
     <article id="concert-<?php the_ID(); ?>" <?php post_class([
         'two-columns'
     ]); ?>>
@@ -11,6 +17,14 @@
             <?php $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries(get_the_ID());
             $years = [];
             $now = time();
+            if(get_post()->post_type !== 'post') {
+                $item = [
+                    '@type' => 'ListItem',
+                    'position' => ++$itemPosition,
+                    'url' => get_permalink()
+                ];
+                $itemList['itemListElement'][] = $item;
+            }
             foreach($concerts as $c) {
                 $date = get_the_date('d.m.Y', $c['id']);
                 if(strtotime($date) > $now) {
@@ -45,6 +59,11 @@
             ?>
         </section>
     </article><?php
+}
+if(!empty($itemList['itemListElement'])) {
+    echo '<script type="application/ld+json">';
+    echo json_encode($itemList, JSON_UNESCAPED_SLASHES);
+    echo '</script>';
 }
 the_posts_pagination([
     'prev_text' => 'Vorherige',
