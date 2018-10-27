@@ -1,5 +1,38 @@
 .mceContentBody {
-    max-width: 675px;
+    max-width: 665px;
     text-align: justify;
     hyphens: auto;
+}
+
+a.image,
+a[href$="jpeg"],
+a[href$="jpg"],
+a[href$="png"],
+a[href$="gif"],
+a.image:link,
+a[href$="jpeg"]:link,
+a[href$="jpg"]:link,
+a[href$="png"]:link,
+a[href$="gif"]:link {
+    display: inline;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+a.image:hover,
+a[href$="jpeg"]:hover,
+a[href$="jpg"]:hover,
+a[href$="png"]:hover,
+a[href$="gif"]:hover,
+a.image:active,
+a[href$="jpeg"]:active,
+a[href$="jpg"]:active,
+a[href$="png"]:active,
+a[href$="gif"]:active,
+a.image:focus,
+a[href$="jpeg"]:focus,
+a[href$="jpg"]:focus,
+a[href$="png"]:focus,
+a[href$="gif"]:focus, {
+    border-bottom: none;
 }

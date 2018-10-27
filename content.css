@@ -37,7 +37,9 @@ a:visited {
     color: var(--link-color);
 }
 
-a:not(.image), a:not(.image):link, a:not(.image):visited {
+a:not(.image),
+a:not(.image):link,
+a:not(.image):visited {
     display: inline-block;
     border-bottom: 1px solid transparent;
     box-sizing: border-box;
