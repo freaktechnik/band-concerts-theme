@@ -833,6 +833,11 @@ svg.fa-placeholder {
     }
 }
 
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
 @media only print {
     .main-head nav,
     footer {

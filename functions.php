@@ -43,7 +43,8 @@ class Theme {
             'height' => 140,
             'width' => 560,
             'flex-width' => true,
-            'flex-height' => false
+            'flex-height' => false,
+            'header-text' => [ 'site-title' ]
         ]);
         add_theme_support('custom-header', [
             'width' => '1920',
@@ -108,6 +109,23 @@ class Theme {
         foreach(self::COLOR_LABELS as $key => $label) {
             $this->add_color_setting($wp_customize, $key, Constants::COLORS[$key], $label);
         }
+
+        // Header text toggle
+        $wp_customize->add_setting('show_header_title', [
+            'default' => true,
+            'theme_supports' => 'custom-logo'
+        ]);
+
+        $wp_customize->add_control(new \WP_Customize_Control(
+            $wp_customize,
+            'show_header_title',
+            [
+                'section' => 'header_image',
+                'setting' => 'show-header-title',
+                'label' => 'Titel anzeigen',
+                'type' => 'checkbox'
+            ])
+        );
     }
 
     /*
@@ -247,8 +265,7 @@ HTML;
     }
 
     public function alwaysShowName() {
-        //TODO add setting for this
-        return true;
+        return !empty(get_theme_mod('show_header_title', '1'));
     }
 
     public function make_schema_events(\WP_Post $post, array $concerts = null): array

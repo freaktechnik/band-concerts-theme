@@ -24,11 +24,9 @@
                 <div class="wrapper">
                     <?php if(has_custom_logo()) {
                         the_custom_logo();
-                        if(\BandConcerts\Theme\Theme::alwaysShowName()) {
-                            ?><h1 class="logotitle"><a href="<?php echo esc_attr(get_home_url()) ?>" rel="home"><?php
-                            bloginfo('name');
-                            ?></a></h1><?php
-                        }
+                        ?><h1 class="logotitle<?php echo \BandConcerts\Theme\Theme::alwaysShowName() ? '' : ' hidden'; ?>"><a href="<?php echo esc_attr(get_home_url()) ?>" rel="home"><?php
+                        bloginfo('name');
+                        ?></a></h1><?php
                     }
                     else {
                         ?><h1><a href="<?php echo esc_attr(get_home_url()) ?>" rel="home"><?php
