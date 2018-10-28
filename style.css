@@ -163,6 +163,12 @@ header .spanner {
     transition: max-height 0.5s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    header .spanner {
+        transition: none;
+    }
+}
+
 ul.menu,
 header nav.menu > ul,
 header .sub-menu,
@@ -684,6 +690,13 @@ svg.fa-placeholder {
 
         box-shadow: 0 0 .5rem var(--shadow-color);
         z-index: -1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        header .menu li > ul.sub-menu,
+        header .menu li > ul.children {
+            transition: none;
+        }
     }
 
     header .menu li:hover > ul.sub-menu,
