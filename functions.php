@@ -196,9 +196,10 @@ HTML;
 
     static function format_concerts(array $concerts, string $dateFormat = 'l j. F Y, H:i', bool $share = true)
     {
-        if(count($concerts) == 1) { ?>
-            <section id="event<?php echo $concerts[0]['id'] ?>"><?php
-            self::format_details($concerts[0], $dateFormat, $share);
+        if(count($concerts) == 1) {
+            $concert = array_pop($concerts);
+            ?><section id="event<?php echo $concert['id'] ?>"><?php
+            self::format_details($concert, $dateFormat, $share);
             ?><section><?php
         }
         else { ?>
