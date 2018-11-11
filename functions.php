@@ -24,6 +24,10 @@ class Theme {
         'footer_text_hover_color' => 'Footer aktiver Text'
     ];
 
+    const NO_ACTIVITIES_MESSAGE = 'Aktuell sind keine Aktivitäten bekannt.';
+    const PAST_ACTIVITIES_BUTTON = 'Vergangene Aktivitäten';
+    const ALL_ACTIVITIES_BUTTON = 'Alle Aktivitäten';
+
     /*
      * Declares theme support for
      *  - Thumbnails on pages and concerts
@@ -121,9 +125,51 @@ class Theme {
             'show_header_title',
             [
                 'section' => 'header_image',
-                'setting' => 'show-header-title',
                 'label' => 'Titel anzeigen',
                 'type' => 'checkbox'
+            ])
+        );
+
+        // No concerts message
+        $wp_customize->add_setting('no_concerts_message', [
+            'default' => self::NO_ACTIVITIES_MESSAGE
+        ]);
+
+        $wp_customize->add_control(new \WP_Customize_Control(
+            $wp_customize,
+            'no_concerts_message',
+            [
+                'section' => 'static_front_page',
+                'label' => 'Keine Aktivitäten Info',
+                'description' => 'Nachricht wenn keine Aktivitäten anstehen'
+            ])
+        );
+
+        // Past activities message
+        $wp_customize->add_setting('past_concerts_message', [
+            'default' => self::PAST_ACTIVITIES_BUTTON
+        ]);
+
+        $wp_customize->add_control(new \WP_Customize_Control(
+            $wp_customize,
+            'past_concerts_message',
+            [
+                'section' => 'static_front_page',
+                'label' => 'Vergangene Aktivitäten Knopf'
+            ])
+        );
+
+        // All activities message
+        $wp_customize->add_setting('all_concerts_message', [
+            'default' => self::ALL_ACTIVITIES_BUTTON
+        ]);
+
+        $wp_customize->add_control(new \WP_Customize_Control(
+            $wp_customize,
+            'all_concerts_message',
+            [
+                'section' => 'static_front_page',
+                'label' => 'Alle Aktivitäten Knopf'
             ])
         );
     }
@@ -264,8 +310,20 @@ HTML;
         }
     }
 
-    public function alwaysShowName() {
+    public static function alwaysShowName() {
         return !empty(get_theme_mod('show_header_title', '1'));
+    }
+
+    public static function noActivitiesMessage() {
+        return get_theme_mod('no_concerts_message', self::NO_ACTIVITIES_MESSAGE);
+    }
+
+    public static function pastActivitiesButton() {
+        return get_theme_mod('past_concerts_message', self::PAST_ACTIVITIES_BUTTON);
+    }
+
+    public static function allActivitiesButton() {
+        return get_theme_mod('all_concerts_message', self::ALL_ACTIVITIES_BUTTON);
     }
 
     public function make_schema_events(\WP_Post $post, array $concerts = null): array

@@ -91,11 +91,11 @@ get_header(); ?>
                 <?php }
             }
             if(!$printedConcert) { ?>
-        <p>Aktuell sind keine Aktivitäten bekannt.</p>
-        <p><a href="index.php/concert/" class="button">Vergangene Aktivitäten</a></p>
+        <p><?php echo \BandConcerts\Theme\Theme::noActivitiesMessage(); ?></p>
+        <p><a href="index.php/concert/" class="button"><?php echo \BandConcerts\Theme\Theme::pastActivitiesButton(); ?></a></p>
         <?php }
         else { ?>
-        </div><p><a href="index.php/concert/" class="button">Alle Aktivitäten</a></p>
+        </div><p><a href="index.php/concert/" class="button"><?php echo \BandConcerts\Theme\Theme::allActivitiesButton(); ?></a></p>
         <?php
             $itemList = [
                 '@context' => 'http://schema.org',
