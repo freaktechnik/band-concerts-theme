@@ -92,6 +92,12 @@ blockquote {
     padding-left: 1rem;
     font-style: italic;
     text-align: left;
+    font-size: 1.1em;
+}
+
+blockquote cite {
+    font-size: 0.8rem;
+    font-style: normal;
 }
 
 

@@ -784,7 +784,8 @@ svg.fa-placeholder {
         margin-right: 1rem;
     }
 
-    article.two-columns > section p:first-child {
+    article.two-columns > section p:first-child,
+    article.two-columns > section figure:first-child {
         margin-top: 0;
     }
 
