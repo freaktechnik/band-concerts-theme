@@ -276,6 +276,15 @@ main aside {
     line-height: 1.6;
 }
 
+main aside .highlight {
+    margin: -1rem;
+    padding: 1rem;
+
+    background-color: var(--footer-font-hover-color);
+    color: var(--footer-color);
+    --accent-alternate-color: vaR(--footer-font-hover-color);
+}
+
 main aside h2 {
     margin-bottom: 0;
 }
@@ -284,8 +293,14 @@ main aside section:first-child h2 {
     margin-top: 0;
 }
 
-main aside .button {
+main aside a.button,
+main aside a.button:link {
     background-color: var(--accent-alternate-color);
+}
+
+main aside a.button:hover,
+main aside a.button:active {
+    background-color: var(--accent-color);
 }
 
 main ul {

@@ -264,7 +264,7 @@ HTML;
             $concert = array_pop($concerts);
             ?><section id="event<?php echo $concert['id'] ?>"><?php
             self::format_details($concert, $dateFormat, $share);
-            ?><section><?php
+            ?></section><?php
         }
         else { ?>
         <ul><?php foreach($concerts as $concert) { ?>

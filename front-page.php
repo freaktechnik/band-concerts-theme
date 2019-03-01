@@ -7,6 +7,7 @@ get_header(); ?>
             $concertseries = \BandConcerts\Plugin::getCurrentConcerts();
             $printedConcert = false;
             $bc_css = [];
+            $nextId = null;
             foreach($concertseries as $cs) {
                 $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries($cs->ID);
                 $earliestConcertDate = NULL;
@@ -32,6 +33,9 @@ get_header(); ?>
                 return $a->earliestTime - $b->earliestTime;
             });
             $itemCount = 5;
+            if (count($bc_css) > $itemCount) {
+                $nextId = $bc_css[$itemCount]->ID;
+            }
             $bc_css = array_slice($bc_css, 0, $itemCount);
 
             if(count($bc_css) > 1 && count($bc_css) == 2 || count($bc_css) == $itemCount - 1) {
@@ -95,7 +99,7 @@ get_header(); ?>
         <p><a href="index.php/concert/" class="button"><?php echo \BandConcerts\Theme\Theme::pastActivitiesButton(); ?></a></p>
         <?php }
         else { ?>
-        </div><p><a href="index.php/concert/" class="button"><?php echo \BandConcerts\Theme\Theme::allActivitiesButton(); ?></a></p>
+        </div><p><a href="index.php/concert/<?php if($nextId) { /* TODO should paginate if necessary */ echo '#concert-'.$nextId; } ?>" class="button"><?php echo \BandConcerts\Theme\Theme::allActivitiesButton(); ?></a></p>
         <?php
             $itemList = [
                 '@context' => 'http://schema.org',

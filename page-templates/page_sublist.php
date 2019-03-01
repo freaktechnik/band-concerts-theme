@@ -10,7 +10,8 @@ get_header(); ?>
     include __DIR__.'/../inc/simple-page.php';
     $children = get_children([
         'post_type' => 'page',
-        'post_parent' => get_the_ID()
+        'post_parent' => get_the_ID(),
+        'orderby' => 'menu_order'
     ]);
     foreach($children as $child) {
         setup_postdata($child);

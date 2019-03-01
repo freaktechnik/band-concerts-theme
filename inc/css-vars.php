@@ -34,7 +34,7 @@ $variableSelectors = [
         'header .spanner' => 'background-color',
         'header .sub-menu li:hover, header .sub-menu li:active, header .sub-menu li.current-menu-item, header .children li:hover, header .children li:active, header .children li.current_page_item' => 'background-color',
         '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
-        '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active' => 'background-color',
+        '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active, main aside a.button:hover, main aside a.button:active, main aside .highlight a.button:hover, main aside .highlight a.button:active' => 'background-color',
         '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'border: 1px solid',
         '.wpcf7 input[type="checkbox"]:checked,.wpcf7 input[type="radio"]:checked' => 'background-color',
     ],
@@ -55,7 +55,7 @@ $variableSelectors = [
     'accent_alternate_color' => [
         'main aside' => 'background-color',
         'blockquote' => 'border-left: 0.5rem solid',
-        'main aside .button' => 'background-color',
+        'main aside a.button, main aside a.button:link' => 'background-color',
         '.concert-placeholder' => 'border: 1px solid',
         'svg.fa-placeholder' => 'fill',
     ],
@@ -75,6 +75,7 @@ $variableSelectors = [
         'footer' => 'background-color',
         'footer button, footer input[type="submit"], footer input[type="button"]' => 'background-color',
         'footer button:hover, footer button:active, footer input[type="submit"]:hover, footer input[type="submit"]:active, footer input[type="button"]:hover, footer input[type="button"]:active' => 'color',
+        'main aside .highlight' => 'color',
     ],
     'footer_text_color' => [
         'footer' => 'color',
@@ -90,6 +91,7 @@ $variableSelectors = [
         'footer button:hover, footer button:active, footer input[type="submit"]:hover, footer input[type="submit"]:active, footer input[type="button"]:hover, footer input[type="button"]:active' => 'background-color',
         'footer button:hover, footer button:active, footer input[type="submit"]:hover, footer input[type="submit"]:active, footer input[type="button"]:hover, footer input[type="button"]:active' => 'border-color',
         'svg.fa-footer:hover' => 'fill',
+        'main aside .highlight, main aside .highlight a.button, main aside .highlight a.button:link' => 'background-color',
     ],
 ];
 
