@@ -192,7 +192,8 @@ textarea, input[type='text'], input[type='number'], input[type='email'], input[t
     display: block;
 }
 
-.wp-caption {
+.wp-caption,
+iframe {
     max-width: 100%;
 }
 

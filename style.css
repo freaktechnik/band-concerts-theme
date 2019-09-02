@@ -386,6 +386,11 @@ main article {
     hyphens: auto;
 }
 
+main article > section:first-of-type > .gallery {
+    margin-top: 1rem;
+}
+
+
 .concert-placeholder {
     border: 1px solid var(--accent-alternate-color);
     width: 100%;
@@ -775,6 +780,10 @@ svg.fa-placeholder {
         -webkit-hyphens: auto;
         hyphens: auto;
         overflow-wrap: break-word;
+    }
+
+    main article > section:first-of-type > .gallery {
+        margin-top: auto;
     }
 
     main article.two-columns {
