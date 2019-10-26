@@ -410,7 +410,7 @@ main article > section:first-of-type > .gallery {
 
 /* Front page */
 
-.bc_first .wp-post-image {
+.bc_first a.image {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }

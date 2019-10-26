@@ -56,9 +56,9 @@ get_header(); ?>
                 if($firstConcert) {
                     $firstConcert = false; ?>
         <article id="concert-<?php echo $cs->ID ?>" <?php post_class('bc_first', $cs->ID) ?>>
-            <a href="<?php echo get_permalink($cs) ?>"><h2><?php echo get_the_title($cs) ?></h2></a>
-            <?php echo get_the_post_thumbnail($cs);
-            ?><section><?php
+            <h2><a href="<?php echo get_permalink($cs) ?>"><?php echo get_the_title($cs) ?></a></h2>
+            <a href="<?php echo get_permalink($cs) ?>" title="<?php echo get_the_title($cs) ?>" class="image"><?php echo get_the_post_thumbnail($cs);
+            ?></a><section><?php
                 setup_postdata($cs);
                 $post = $cs;
                 echo get_the_content('(ganzer Beschrieb...)');
@@ -75,7 +75,7 @@ get_header(); ?>
         <?php }
                 else { ?>
         <article id="concert-<?php echo $cs->ID ?>" <?php post_class('bc_extra', $cs->ID) ?>>
-            <a href="<?php echo get_permalink($cs) ?>"><h2><?php echo get_the_title($cs) ?></h2></a>
+            <h2><a href="<?php echo get_permalink($cs) ?>"><?php echo get_the_title($cs) ?></a></h2>
             <?php
             if($cs->post_type === 'post') { ?>
                 <section class="detail">
