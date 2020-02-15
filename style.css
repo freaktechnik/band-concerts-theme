@@ -82,8 +82,8 @@ header {
     background-color: rgba(255, 255, 255, 0.6);
     position: relative;
 
-    padding-top: 0;
-    padding-top: env(safe-area-inset-top);
+    margin-top: 0;
+    margin-top: env(safe-area-inset-top);
 }
 
 .custom-logo-link {
@@ -747,6 +747,7 @@ svg.fa-placeholder {
     .logotitle {
         display: inline-block;
         visibility: visible;
+        margin: 0;
     }
 
     .wrapper {
@@ -757,6 +758,10 @@ svg.fa-placeholder {
     .custom-logo {
         max-width: 40rem;
         padding: 0;
+    }
+
+    .upper-head .wrapper {
+        padding: 2rem 0;
     }
 
     main .wrapper {
