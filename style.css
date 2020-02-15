@@ -756,6 +756,7 @@ svg.fa-placeholder {
 
     .custom-logo {
         max-width: 40rem;
+        padding: 0;
     }
 
     main .wrapper {
