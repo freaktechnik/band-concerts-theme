@@ -113,7 +113,7 @@ header {
 .upper-head a:not(.image):hover,
 .upper-head a:not(.image):active,
 .upper-head a:not(.image):focus {
-    border: none;
+    text-decoration: none;
 }
 
 #menubutton {
@@ -128,6 +128,7 @@ header {
     padding: 0.5em;
 
     border: none;
+    text-decoration: none;
     background-color: var(--accent-color);
     color: var(--accent-font-color);
     box-shadow: 0 0 .5rem var(--shadow-color);
@@ -219,6 +220,7 @@ header .children {
 .menu li > a:active,
 .menu li > a:focus {
     border-bottom: none;
+    text-decoration: none;
 }
 
 .menu li:hover,
@@ -324,6 +326,13 @@ main li {
 .next.page-numbers,
 .prev.page-numbers {
     display: inline-block;
+    text-decoration: none;
+
+}
+
+a.button:hover,
+a.button:active,
+a.button:focus {
     text-decoration: none;
 }
 

@@ -35,13 +35,11 @@ a:link,
 a:visited {
     text-decoration: none;
     color: var(--link-color);
-    display: inline-block;
 }
 
 a:not(.image),
 a:not(.image):link,
 a:not(.image):visited {
-    border-bottom: 1px solid transparent;
     box-sizing: border-box;
 }
 
@@ -49,7 +47,20 @@ a:not(.image):hover,
 a:not(.image):active,
 a:not(.image):focus {
     color: var(--link-color);
-    border-bottom: 1px solid var(--link-color);
+    text-decoration-color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-skip: edges;
+    text-decoration-skip-ink: none;
+}
+
+.gallery-item a,
+.gallery-item a:link,
+.gallery-item a:visited,
+.gallery-item a:hover,
+.gallery-item a:active,
+.gallery-item a:focus {
+    text-decoration: none;
 }
 
 .big-only {

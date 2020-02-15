@@ -26,7 +26,7 @@ $variableSelectors = [
     'link_color' => [
         'a, a:link, a:visited' => 'color',
         'a:not(.image):hover, a:not(.image):active, a:not(.image):focus' => 'color',
-        'a:not(.image):hover, a:not(.image):active, a:not(.image):focus' => 'border-bottom: 1px solid',
+        'a:not(.image):hover, a:not(.image):active, a:not(.image):focus' => 'text-decoration-color',
     ],
     'accent_color' => [
         '.logotitle' => 'color',
