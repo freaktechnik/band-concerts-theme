@@ -656,6 +656,10 @@ svg.fa-placeholder {
     margin-left: 1.2em;
 }
 
+.detail.cancelled {
+    text-decoration: line-through;
+}
+
 @media (-moz-touch-enabled: 0), (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
     :root {
         --form-radius: 2px;

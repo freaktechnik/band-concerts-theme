@@ -278,20 +278,20 @@ HTML;
     static function format_details(array $concert, string $dateFormat = 'l j. F Y, H:i', bool $share = true)
     {
         $entry = '';
-        if($concert['unco'] == 'unconfirmed' && strpos($dateFormat, 'H:i') !== FALSE) {
+        if($concert['unco'] && strpos($dateFormat, 'H:i') !== FALSE) {
             $dateFormat = 'l j. F Y';
         }
         if($concert['fee'] != '-1') {
             $icon = self::get_icon('ticket-alt');
-            $entry = '<section class="detail">'.$icon.'<span>Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF').'</span></section>';
+            $entry = '<section class="detail'.($concert['cancelled'] ? ' cancelled' : '').'">'.$icon.'<span>Eintritt: '.(empty($concert['fee']) ? 'frei, Kollekte' : $concert['fee'].' CHF').'</span></section>';
         }
-        ?><section class="detail"><?php echo self::get_icon('calendar'); ?><span><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?></span></section>
+        ?><section class="detail<?php echo $concert['cancelled'] ? ' cancelled' : '' ?>"><?php echo self::get_icon('calendar'); ?><span><time datetime="<?php echo $concert['date'] ?>"><?php echo get_the_date($dateFormat, $concert['id']) ?></time><?php if($dateFormat == 'l j. F Y, H:i') { ?> Uhr<?php } ?></span></section>
         <?php
         if(!empty($concert['location'])) {
-            ?><section class="detail"><?php echo self::get_icon('location-arrow'); ?><span><?php echo $concert['location']; ?></span></section><?php echo $entry;
+            ?><section class="detail<?php echo $concert['cancelled'] ? ' cancelled' : '' ?>"><?php echo self::get_icon('location-arrow'); ?><span><?php echo $concert['location']; ?></span></section><?php echo $entry;
         }
         if($share) {
-            $inFuture = strtotime($concert[$concert['dateend'] ? 'dateend' : 'date']) > time();
+            $inFuture = (strtotime($concert[$concert['dateend'] ? 'dateend' : 'date']) > time() ) && !$concert['cancelled'];
             ?><section><?php
             if($inFuture || $concert['fbevent']) {
                 echo self::get_icon('share');
@@ -378,6 +378,7 @@ HTML;
                 ],
                 'image' => $schema['image'],
                 'description' => $schema['description'],
+                'eventAttendanceMode' => 'https://schema.org/OfflineEventAttendanceMode',
             ];
 
             if(!empty($concert['dateend'])) {
@@ -404,6 +405,11 @@ HTML;
                     $event['offers']['url'] = $concert['fbevent'];
                 }
             }
+
+            if($concert['cancelled']) {
+                $event['eventStatus'] = 'https://schema.org/EventCancelled';
+            }
+
             $out[] = $event;
         }
         return $out;
