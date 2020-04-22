@@ -450,7 +450,7 @@ footer {
     }
 }
 
-footer .wrapper div,
+footer .wrapper div:not(.mailpoet_form_popup_overlay),
 footer section,
 footer .mailpoet_paragraph {
     display: inline-block;
