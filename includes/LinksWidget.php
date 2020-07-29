@@ -29,6 +29,13 @@ class LinksWidget extends \WP_Widget {
                 </svg>
             </a><?php
         }
+        if(!empty($instance['instagram'])) { ?>
+            <a href="<?php echo esc_attr($instance['instagram']) ?>" title="Instagram" rel="external noopener me" class="image">
+                <svg class="fa-footer">
+                    <use xlink:href="<?php echo esc_attr(get_template_directory_uri()) ?>/images/fa-brands.svg#instagram"></use>
+                </svg>
+            </a>
+        <?php }
         echo $args['after_widget'];
     }
     /**
@@ -38,11 +45,14 @@ class LinksWidget extends \WP_Widget {
         $title = !empty($instance['title']) ? $instance['title'] : '';
         $titleFieldId = esc_attr($this->get_field_id('title'));
         $fbFieldId = esc_attr($this->get_field_id('facebook'));
+        $instaFieldId = esc_attr($this->get_field_id('instagram'));
 ?><p>
     <label for="<?php echo $titleFieldId; ?>"><?php _e(esc_attr('Title:')); ?></label>
     <input class="widefat" id="<?php echo $titleFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
     <label for="<?php echo $fbFieldId; ?>"><?php _e('Facebook:'); ?></label>
     <input class="widefat" id="<?php echo $fbFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('facebook')); ?>" type="url" value="<?php echo esc_attr($instance['facebook']); ?>" placeholder="https://www.facebook.com/MyPage/">
+    <label for="<?php echo $instaFieldId; ?>"><?php _e('Instagram:'); ?></label>
+    <input class="widefat" id="<?php echo $instaFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('instagram')); ?>" type="url" value="<?php echo esc_attr($instance['instagram']); ?>" placeholder="https://instagram.com/MyPage/">
 </p><?php
     }
     /**
@@ -52,6 +62,7 @@ class LinksWidget extends \WP_Widget {
         $instance = [];
         $instance['title'] = !empty($new_instance['title']) ? strip_tags($new_instance['title']) : '';
         $instance['facebook'] = !empty($new_instance['facebook']) ? strip_tags($new_instance['facebook']) : '';
+        $instance['instagram'] = !empty($new_instance['instagram']) ? strip_tags($new_instance['instagram']) : '';
         return $instance;
     }
 }

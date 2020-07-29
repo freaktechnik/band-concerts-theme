@@ -15,7 +15,7 @@ The plugin is required for the theme to work properly.
  - Navigation to sub-pages from parent page
  - Support for all custom fields of concerts and concertseries
  - Link to export concert dates to calendar
- - Widget with links to the full calendar (ics) and optionally Facebook
+ - Widget with links to the full calendar (ics) and optionally Facebook, Instagram
  - Support just about all formatting features of WordPress
 
 ## Dependencies
