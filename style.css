@@ -580,6 +580,7 @@ a.prev.page-numbers:active {
     border-radius: var(--form-radius);
     margin: 0;
     padding: 0;
+    margin-right: 0.5ch;
 }
 
 .wpcf7 input[type="checkbox"]:checked,
