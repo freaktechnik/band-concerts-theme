@@ -26,7 +26,7 @@ the_post();
         ob_start();
         the_post_thumbnail();
         the_content();
-        $review = apply_filters( 'the_content', get_post_meta(get_the_ID(), \BandConcerts\ConcertSeries::REVIEW_FIELD, true));
+        $review = apply_filters('the_content', do_shortcode(apply_filters('autoembed', get_post_meta(get_the_ID(), \BandConcerts\ConcertSeries::REVIEW_FIELD, true))));
         $content = ob_get_flush();
         if(!empty($review)) { ?>
         <h2 id="review"><?php echo \BandConcerts\ConcertSeries::IsConcert(get_the_ID()) ? 'Konzertbericht' : 'Rückblick'; ?></h2>

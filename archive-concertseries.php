@@ -25,8 +25,10 @@
                 ];
                 $itemList['itemListElement'][] = $item;
             }
+            $nonCancelledYears = [];
             foreach($concerts as $c) {
                 $date = get_the_date('d.m.Y', $c['id']);
+                $cancelled = $c['cancelled'];
                 if(strtotime($date) > $now) {
                     $year = $date;
                 }
@@ -36,8 +38,21 @@
                 if(!in_array($year, $years)) {
                     $years[] = $year;
                 }
+                if(!$cancelled && !in_array($year, $nonCancelledYears)) {
+                    $nonCancelledYears[] = $year;
+                }
+            }
+            $dates = [];
+            foreach($years as $year) {
+                $date = '<date>';
+                $cancelled = !in_array($year, $nonCancelledYears);
+                if($cancelled) {
+                    $date = '<date class="detail cancelled">';
+                }
+                $date .= $year.'</date>';
+                $dates[] = $date;
             } ?>
-            <p><time><?php echo \BandConcerts\Theme\Theme::get_icon('calendar').implode(', ', $years); ?></time></p>
+            <p><?php echo \BandConcerts\Theme\Theme::get_icon('calendar').implode(', ', $dates); ?></p>
             <?php
             $review = get_post_meta(get_the_ID(), \BandConcerts\ConcertSeries::REVIEW_FIELD, true);
             if(!empty($review)) { ?>
