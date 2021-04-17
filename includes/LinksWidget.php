@@ -36,6 +36,13 @@ class LinksWidget extends \WP_Widget {
                 </svg>
             </a>
         <?php }
+        if(!empty($instance['youtube'])) { ?>
+            <a href="<?php echo esc_attr($instance['youtube']) ?>" title="YouTube" rel="external noopener me" class="image">
+                <svg class="fa-footer">
+                    <use xlink:href="<?php echo esc_attr(get_template_directory_uri()) ?>/images/fa-brands.svg#youtube"></use>
+                </svg>
+            </a>
+        <?php }
         echo $args['after_widget'];
     }
     /**
@@ -46,6 +53,7 @@ class LinksWidget extends \WP_Widget {
         $titleFieldId = esc_attr($this->get_field_id('title'));
         $fbFieldId = esc_attr($this->get_field_id('facebook'));
         $instaFieldId = esc_attr($this->get_field_id('instagram'));
+        $ytFieldId = esc_attr($this->get_field_id('youtube'));
 ?><p>
     <label for="<?php echo $titleFieldId; ?>"><?php _e(esc_attr('Title:')); ?></label>
     <input class="widefat" id="<?php echo $titleFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
@@ -53,6 +61,8 @@ class LinksWidget extends \WP_Widget {
     <input class="widefat" id="<?php echo $fbFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('facebook')); ?>" type="url" value="<?php echo esc_attr($instance['facebook']); ?>" placeholder="https://www.facebook.com/MyPage/">
     <label for="<?php echo $instaFieldId; ?>"><?php _e('Instagram:'); ?></label>
     <input class="widefat" id="<?php echo $instaFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('instagram')); ?>" type="url" value="<?php echo esc_attr($instance['instagram']); ?>" placeholder="https://instagram.com/MyPage/">
+    <label for="<?php echo $ytFieldId; ?>"><?php _e('YouTube:'); ?></label>
+    <input class="widefat" id="<?php echo $ytFieldId; ?>" name="<?php echo esc_attr($this->get_field_name('youtube')); ?>" type="url" value="<?php echo esc_attr($instance['youtube']); ?>" placeholder="https://www.youtube.com/channel/MyChannel">
 </p><?php
     }
     /**
@@ -63,6 +73,7 @@ class LinksWidget extends \WP_Widget {
         $instance['title'] = !empty($new_instance['title']) ? strip_tags($new_instance['title']) : '';
         $instance['facebook'] = !empty($new_instance['facebook']) ? strip_tags($new_instance['facebook']) : '';
         $instance['instagram'] = !empty($new_instance['instagram']) ? strip_tags($new_instance['instagram']) : '';
+        $instance['youtube'] = !empty($new_instance['youtube']) ? strip_tags($new_instance['youtube']) : '';
         return $instance;
     }
 }
