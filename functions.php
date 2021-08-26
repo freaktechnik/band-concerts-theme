@@ -331,7 +331,7 @@ HTML;
         $schema = [
             'performer' => [
                 '@type' => 'PerformingGroup',
-                'name' => \BandConcerts\EventIcal::$organizerName
+                'name' => get_bloginfo('name', 'display')
             ]
         ];
         if(has_custom_logo()) {
