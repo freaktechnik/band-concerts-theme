@@ -328,10 +328,11 @@ HTML;
 
     public function make_schema_events(\WP_Post $post, array $concerts = null): array
     {
+        $organizer = get_bloginfo('name', 'display');
         $schema = [
             'performer' => [
                 '@type' => 'PerformingGroup',
-                'name' => get_bloginfo('name', 'display')
+                'name' => $organizer
             ]
         ];
         if(has_custom_logo()) {
@@ -354,7 +355,9 @@ HTML;
         }
 
         $tz = new \DateTimeZone(\BandConcerts\EventICal::$timezone);
-        $duration = new \DateInterval(\BandConcerts\EventICal::$eventDuration);;
+        $duration = new \DateInterval(\BandConcerts\EventICal::$eventDuration);
+        $organizerUrl = get_site_url();
+        $validFrom = new \DateTime($post->post_modified, $tz);
 
         $out = [];
         foreach($concerts as $concert) {
@@ -370,6 +373,7 @@ HTML;
                 'url' => $schema['url'].'#event'.$concert['id'],
                 'name' => $schema['name'],
                 'startDate' => $date->format(\DateTime::W3C),
+                'eventStatus' => 'https://schema.org/EventScheduled',
                 'location' => [
                     '@type' => 'Place',
                     'name' => explode(',', $concert['location'])[0],
@@ -378,6 +382,11 @@ HTML;
                 ],
                 'image' => $schema['image'],
                 'description' => $schema['description'],
+                'organizer' => [
+                    '@type' => 'Organization',
+                    'name' => $organizer,
+                    'url' => $organizerUrl,
+                ],
                 'eventAttendanceMode' => 'https://schema.org/OfflineEventAttendanceMode',
             ];
 
@@ -399,7 +408,9 @@ HTML;
                 $event['offers'] = [
                     '@type' => 'Offer',
                     'price' => $concert['fee'],
-                    'priceCurrency' => 'CHF'
+                    'priceCurrency' => 'CHF',
+                    'availability' => 'https://schema.org/InStock',
+                    'validFrom' => $validFrom->format(\DateTime::W3C),
                 ];
                 if(!empty($concert['fbevent'])) {
                     $event['offers']['url'] = $concert['fbevent'];
