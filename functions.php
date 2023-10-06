@@ -326,7 +326,7 @@ HTML;
         return get_theme_mod('all_concerts_message', self::ALL_ACTIVITIES_BUTTON);
     }
 
-    public function make_schema_events(\WP_Post $post, array $concerts = null): array
+    public static function make_schema_events(\WP_Post $post, array $concerts = null): array
     {
         $organizer = get_bloginfo('name', 'display');
         $schema = [
