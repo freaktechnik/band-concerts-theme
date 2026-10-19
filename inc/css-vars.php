@@ -17,6 +17,7 @@ $variableSelectors = [
         '.wpcf7 button, .wpcf7 input[type="submit"], .wpcf7 input[type="button"], a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'background-color',
         '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'background-color',
         'body' => 'background-color',
+        '.wp-element-button' => 'background-color',
     ],
     'text_color' => [
         '.wpcf7 button, .wpcf7 input[type="submit"], .wpcf7 input[type="button"], a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'color',
@@ -33,10 +34,11 @@ $variableSelectors = [
         '#menubutton' => 'background-color',
         'header .spanner' => 'background-color',
         'header .sub-menu li:hover, header .sub-menu li:active, header .sub-menu li.current-menu-item, header .children li:hover, header .children li:active, header .children li.current_page_item' => 'background-color',
-        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
+        '.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha):not(.wpcf7-acceptance), a.button, a.button:link, a.next.page-numbers, a.prev.page-numbers' => 'border: 1px solid',
         '.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:active, .wpcf7 input[type="button"]:hover, .wpcf7 input[type="button"]:active, .wpcf7 button:hover, .wpcf7 button:active, a.button:hover, a.button:active, a.next.page-numbers:hover, a.next.page-numbers:active, a.prev.page-numbers:hover, a.prev.page-numbers:active, main aside a.button:hover, main aside a.button:active, main aside .highlight a.button:hover, main aside .highlight a.button:active' => 'background-color',
         '.wpcf7 input[type="checkbox"],.wpcf7 input[type="radio"]' => 'border: 1px solid',
         '.wpcf7 input[type="checkbox"]:checked,.wpcf7 input[type="radio"]:checked' => 'background-color',
+        '.wp-element-button' => 'border: 1px solid',
     ],
     'accent_hover_color' => [
         '#menubutton:hover, #menubutton:active' => 'background-color',
@@ -92,6 +94,8 @@ $variableSelectors = [
         'footer button:hover, footer button:active, footer input[type="submit"]:hover, footer input[type="submit"]:active, footer input[type="button"]:hover, footer input[type="button"]:active' => 'border-color',
         'svg.fa-footer:hover' => 'fill',
         'main aside .highlight, main aside .highlight a.button, main aside .highlight a.button:link' => 'background-color',
+        '#menu-item-3804 a' => 'text-decoration-color',
+        '.bc_extras #concert-3813' => 'border: 3px dashed',
     ],
 ];
 

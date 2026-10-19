@@ -8,7 +8,13 @@ get_header(); ?>
             $printedConcert = false;
             $bc_css = [];
             $nextId = null;
+            //TODO make this dynamic
+            $highlightedCsId = '3813';
+            $highlightedCs;
             foreach($concertseries as $cs) {
+                if($cs->ID == $highlightedCsId) {
+                    $highlightedCs = $cs;
+                }
                 $concerts = \BandConcerts\ConcertSeries::getConcertsForSeries($cs->ID);
                 $earliestConcertDate = NULL;
                 $concerts = array_filter($concerts, function($i) use(&$earliestConcertDate) {
@@ -38,15 +44,26 @@ get_header(); ?>
             }
             $bc_css = array_slice($bc_css, 0, $itemCount);
 
-            if(count($bc_css) > 1 && count($bc_css) == 2 || count($bc_css) == $itemCount - 1) {
-                $postQuery = new WP_Query([
-                    'post_type' => 'post',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 1
-                ]);
-                if($postQuery->have_posts()) {
-                    $index = min(count($bc_css), $itemCount - 1);
-                    $bc_css[$index] = $postQuery->next_post();
+            // if(count($bc_css) > 1 && count($bc_css) == 2 || count($bc_css) == $itemCount - 1) {
+            //     $postQuery = new WP_Query([
+            //         'post_type' => 'post',
+            //         'post_status' => 'publish',
+            //         'posts_per_page' => 1
+            //     ]);
+            //     if($postQuery->have_posts()) {
+            //         $index = min(count($bc_css), $itemCount - 1);
+            //         $bc_css[$index] = $postQuery->next_post();
+            //     }
+            // }
+
+            if($highlightedCs) {
+                if(count($bc_css) < $itemCount) {
+                    if(!in_array($highlightedCs, $bc_css)) {
+                        array_push($bc_css, $highlightedCs);
+                    }
+                }
+                else {
+                    $bc_css[4] = $highlightedCs;
                 }
             }
 

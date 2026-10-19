@@ -284,7 +284,7 @@ main aside .highlight {
 
     background-color: var(--footer-font-hover-color);
     color: var(--footer-color);
-    --accent-alternate-color: vaR(--footer-font-hover-color);
+    --accent-alternate-color: var(--footer-font-hover-color);
 }
 
 main aside h2 {
@@ -374,6 +374,18 @@ main .menu li > a:link,
 main .menu li > a:visited {
     /* Need the important for a broken cascade on Firefox :( */
     --link-color: var(--accent-alternate-font-color) !important;
+}
+
+/* Musiktag specific */
+#menu-item-3804 a {
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--footer-font-hover-color);
+}
+.bc_extras #concert-3813 {
+    margin-left: -1em;
+    padding-left: 1em;
+    border: 3px dashed var(--footer-font-hover-color);
 }
 
 main aside h1 {
@@ -529,7 +541,7 @@ footer input[type="button"]:active {
     box-sizing: border-box;
 }
 
-.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha),
+.wpcf7-form-control:not(.wpcf7-mailpoetsignup):not(.wpcf7-radio):not(.wpcf7-recaptcha):not(.wpcf7-acceptance),
 a.button,
 a.button:link,
 a.next.page-numbers,
@@ -666,13 +678,19 @@ svg.fa-placeholder {
     text-decoration: line-through;
 }
 
+.wp-element-button {
+    background-color: var(--background-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.5em 1.5em !important;
+}
+
 @media (-moz-touch-enabled: 0), (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
     :root {
         --form-radius: 2px;
         --form-padding: 0.25em;
     }
 
-    main a:not(.image) {
+    main a:not(.image,.wp-element-button) {
         padding: initial;
     }
 
