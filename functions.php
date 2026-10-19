@@ -232,6 +232,14 @@ class Theme {
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ]);
+        register_sidebar([
+            'name' => __('Sponsoren'),
+            'id' => 'sponsors',
+            'before_widget' => '<section>',
+            'after_widget' => '</section>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        ])
     }
 
     function add_editor_style(array $mceInit)

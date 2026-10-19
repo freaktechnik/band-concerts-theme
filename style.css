@@ -450,10 +450,15 @@ footer {
     }
 }
 
-footer .wrapper div:not(.mailpoet_form_popup_overlay),
+footer .wrapper > aside > section > div:not(.mailpoet_form_popup_overlay),
 footer section,
 footer .mailpoet_paragraph {
     display: inline-block;
+}
+
+/* hide extraneous nav buttons from slider */
+footer .eedee-gutenslider-nav {
+    display: none;
 }
 
 footer .footer-inner section {

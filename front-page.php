@@ -129,4 +129,9 @@ get_header(); ?>
         <?php dynamic_sidebar('aside'); ?>
     </aside>
     <?php }
+    if(is_active_sidebar('sponsors')) { ?>
+    <div>
+        <?php dynamic_sidebar('sponsors'); ?>
+    </div>
+    <?php }
 get_footer(); ?>
